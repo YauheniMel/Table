@@ -9,12 +9,15 @@
       visibility: visible;
     }
 
-    &:checked + span::before {
+    &:checked + span::before,
+    &:hover + span::before {
       border-color: $primary;
     }
   }
 
   span {
+    position: relative;
+    top: 3px;
 
     &::before {
       content: '';
@@ -35,8 +38,8 @@
       background-color: $primary;
       width: 12px;
       height: 12px;
-      top: 11px;
-      left: 12px;
+      top: 2px;
+      left: 3px;
       visibility: hidden;
     }
   }
