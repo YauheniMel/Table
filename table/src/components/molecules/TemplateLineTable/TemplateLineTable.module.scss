@@ -3,15 +3,16 @@
 .wrapper {
   display: flex;
   justify-content: space-between;
-  margin: 8px;
+
   background-color: $white;
 
   th {
+    padding: 0.2em;
     width: 20px;
   }
 
   td {
-    padding-left: 12px;
+    padding: 0.2em 0.2em 0.2em 1em;
     border-left: 1px solid $gray-2;
   }
 }
