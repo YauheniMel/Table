@@ -1,3 +1,4 @@
+import Checkbox from '../../atoms/Checkbox/Checkbox';
 import styles from './TemplateLineTable.module.scss';
 
 export default function TemplateLineTable() {
@@ -5,7 +6,9 @@ export default function TemplateLineTable() {
   // maybe should use NavLink
   return (
     <tr className={styles.wrapper}>
-      <th>□</th>
+      <th>
+        <Checkbox />
+      </th>
       <td>Metallica</td>
       <td>
         <a href="">Mama said</a>
