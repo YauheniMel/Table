@@ -1,0 +1,25 @@
+@import '../../../style/variables';
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin: 8px;
+  background-color: $white;
+
+  th {
+    width: 20px;
+  }
+
+  td {
+    padding-left: 12px;
+    border-left: 1px solid $gray-2;
+  }
+}
+
+.odd {
+  background-color: $white;
+}
+
+.even {
+  background-color: $gray-1;
+}
