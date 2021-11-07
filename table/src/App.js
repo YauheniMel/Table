@@ -1,4 +1,5 @@
 import './App.scss';
+import TabToggle from './components/atoms/TabToggle/TabToggle';
 import Pagination from './components/molecules/Pagination/Pagination';
 import TableHead from './components/molecules/TableHead/TableHead';
 import TemplateLineTable from './components/molecules/TemplateLineTable/TemplateLineTable';
@@ -6,6 +7,14 @@ import TemplateLineTable from './components/molecules/TemplateLineTable/Template
 function App() {
   return (
     <div className="App">
+      <TabToggle
+        title="Table"
+        isActive={true}
+      />
+      <TabToggle
+        title="New"
+        isActive={false}
+      />
       <table>
         <thead>
           <TableHead />

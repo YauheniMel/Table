@@ -1,0 +1,56 @@
+@import '../../../style/colors';
+@import '../../../style/typography';
+
+.title {
+  position: relative;
+  font-size: $font-size-desktop;
+  font-weight: normal;
+  display: inline-block;
+  padding: 3px 18px 3px 3px;
+
+  border-right: 1px solid $gray-2;
+
+  &::after,
+  &::before {
+    content: '';
+    position: absolute;
+    mask-repeat: no-repeat;
+  }
+
+  &::after {
+    top: 11px;
+    right: 4px;
+    width: 12px;
+    height: 12px;
+    mask-image: url(../../../assets/icons/down-tab.svg);
+    mask-size: 12px;
+    background-color: $gray-2;
+  }
+
+  &::before {
+    display: none;
+    top: 14px;
+    right: 6px;
+    width: 7px;
+    height: 7px;
+    mask-image: url(../../../assets/icons/down-triangle.svg);
+    mask-size: 7px;
+    background-color: $primary;
+  }
+
+  &:hover::after {
+    background-color: $primary;
+  }
+}
+
+.active {
+  font-weight: bold;
+
+  &::after {
+    display: none;
+  }
+
+  &::before {
+    display: block;
+  }
+}
