@@ -1,10 +1,11 @@
 @import '../../../style/colors';
 
 .wrapper {
-  display: flex;
-  justify-content: space-between;
-
   background-color: $white;
+
+  th, td  {
+    border: 1px solid $gray-2;
+  }
 
   th {
     padding: 0.2em;
@@ -13,7 +14,11 @@
 
   td {
     padding: 0.2em 0.2em 0.2em 1em;
-    border-left: 1px solid $gray-2;
+  }
+
+  & > :last-child {
+    width: 20px;
+    padding: 0.2em;
   }
 }
 

@@ -1,0 +1,19 @@
+@import './style/colors';
+
+table {
+  width: 1400px;
+  border: 1px solid $gray-2;
+  border-collapse: collapse;
+}
+
+tbody > :nth-child(even) {
+  background-color: $gray-1;
+}
+
+table thead {
+  width: 1400px;
+}
+
+tfoot td {
+  padding: 0.3em;
+}

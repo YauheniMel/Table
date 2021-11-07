@@ -5,9 +5,10 @@
   display: inline-block;
   position: relative;
   cursor: pointer;
-
+  margin-right: 22px;
   background-color: transparent;
   font-size: $font-size-desktop;
+  font-weight: bold; // need correct font weight
   border: none;
 
   &::before,

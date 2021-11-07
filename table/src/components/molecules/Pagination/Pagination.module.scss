@@ -3,6 +3,7 @@
 
 .wrapper {
   display: flex;
+  justify-content: flex-end;
   column-gap: 20px;
 
   strong {
@@ -40,6 +41,10 @@ ul {
 }
 
 form {
+  label {
+    display: flex;
+  }
+
   button {
     font-size: $font-size-desktop;
 
