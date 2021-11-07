@@ -1,0 +1,14 @@
+@import '../../../style/colors';
+@import '../../../style/typography';
+
+.wrapper {
+  border: 1px solid $gray-2;
+  background-color: $white;
+
+  th {
+    font-size: $font-size-desktop;
+    font-weight: bold;
+    border-left: 1px solid $gray-2;
+    padding: 0.3em;
+  }
+}
