@@ -1,5 +1,6 @@
 import Checkbox from '../../atoms/Checkbox/Checkbox';
 import EvaluationCounter from '../../atoms/EvaluationCounter/EvaluationCounter';
+import SelectAction from '../../atoms/SelectAction/SelectAction';
 import styles from './TemplateLineTable.module.scss';
 
 export default function TemplateLineTable() {
@@ -19,7 +20,9 @@ export default function TemplateLineTable() {
         <EvaluationCounter />
       </td>
       <td>Los Angeles, USA</td>
-      <td>||</td>
+      <td>
+        <SelectAction />
+      </td>
     </tr>
   );
 }
