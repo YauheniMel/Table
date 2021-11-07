@@ -1,8 +1,7 @@
-@import '../../../style/variables';
+@import '../../../style/colors';
 
 // there is no customisation
 select {
-  font-size: inherit;
   mask-image: url(../../../assets/icons/btn_action.svg);
   mask-repeat: no-repeat;
   mask-size: 1em;
