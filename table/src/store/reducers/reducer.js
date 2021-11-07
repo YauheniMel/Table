@@ -75,6 +75,7 @@ const initState = {
     photoURL: 'https://st.depositphotos.com/1764136/1679/i/950/depositphotos_16794435-stock-photo-band-isolated.jpg',
     history: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste deleniti omnis numquam. Porro, reiciendis. Quis, voluptate id libero molestias maiores repellat odio nisi optio alias iste debitis odit quod ipsum vitae, hic a tempora. Dignissimos numquam aliquam repudiandae deserunt, iste pariatur. Reiciendis nesciunt culpa asperiores aperiam excepturi ratione beatae vitae, ab ipsum eveniet doloremque consectetur reprehenderit maxime iste eum quasi! Eveniet ex facere totam, provident vel cupiditate ad earum perferendis iure placeat sit, atque, possimus maxime dolor sunt! Minus expedita dolores consectetur vel provident quos enim nisi esse illo repellendus dolor, nemo nesciunt placeat iure, dicta fuga. Nulla ipsum eligendi quis nam impedit aliquid excepturi itaque perspiciatis rem quidem unde alias corrupti enim voluptatum earum dolorem soluta nostrum, iure blanditiis. Sapiente quibusdam veritatis, vitae dolore, voluptatibus repellendus velit, iure maxime minima dicta praesentium minus consequatur optio suscipit at! Deserunt accusantium cum, maxime minima dolorum nobis ad velit quidem totam mollitia!'
   },
+  allChecked: false,
 };
 
 export default function reducer(state = initState, action) {

@@ -12,7 +12,7 @@ function App() {
         isActive={true}
       />
       <TabToggle
-        title="New"
+        title="Add"
         isActive={false}
       />
       <table>
