@@ -17,6 +17,7 @@
     left: 0;
     font-size: inherit;
     height: inherit;
+    cursor: pointer;
 
     &:checked, &:hover {
       background-color: $gold;

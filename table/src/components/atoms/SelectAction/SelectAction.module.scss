@@ -1,0 +1,18 @@
+@import '../../../style/variables';
+
+// there is no customisation
+select {
+  font-size: inherit;
+  mask-image: url(../../../assets/icons/btn_action.svg);
+  mask-repeat: no-repeat;
+  mask-size: 1em;
+  background-color: $primary;
+  cursor: pointer;
+  color: $black;
+
+  option {
+    background-color: $white;
+    color: $primary;
+    line-height: 20px;
+  }
+}
