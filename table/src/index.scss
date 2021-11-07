@@ -9,6 +9,24 @@ body {
 a {
   color: $primary;
   text-decoration: none;
+
+  &:hover {
+    color: $gray-2;
+  }
+}
+
+input {
+  border: 1px solid $gray-2;
+  border-radius: 4px;
+
+  &:focus {
+    border-color: $primary;
+    outline: none;
+  }
+}
+
+ul {
+  list-style: none;
 }
 
 * {
