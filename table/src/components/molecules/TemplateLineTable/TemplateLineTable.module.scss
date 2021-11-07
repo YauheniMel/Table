@@ -1,0 +1,31 @@
+@import '../../../style/colors';
+
+.wrapper {
+  background-color: $white;
+
+  th, td  {
+    border: 1px solid $gray-2;
+  }
+
+  th {
+    padding: 0.2em;
+    width: 20px;
+  }
+
+  td {
+    padding: 0.2em 0.2em 0.2em 1em;
+  }
+
+  & > :last-child {
+    width: 20px;
+    padding: 0.2em;
+  }
+}
+
+.odd {
+  background-color: $white;
+}
+
+.even {
+  background-color: $gray-1;
+}

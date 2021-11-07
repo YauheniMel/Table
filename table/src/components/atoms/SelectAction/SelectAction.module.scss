@@ -1,0 +1,19 @@
+@import '../../../style/colors';
+
+// there is no customisation
+select {
+  mask-image: url(../../../assets/icons/btn_action.svg);
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: 1em;
+  background-color: $primary;
+  cursor: pointer;
+  color: $black;
+  width: 100%;
+
+  option {
+    background-color: $white;
+    color: $primary;
+    line-height: 20px;
+  }
+}
