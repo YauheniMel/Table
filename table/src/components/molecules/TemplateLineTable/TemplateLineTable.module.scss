@@ -3,7 +3,8 @@
 .wrapper {
   background-color: $white;
 
-  th, td  {
+  th,
+  td {
     border: 1px solid $gray-2;
   }
 
@@ -13,7 +14,11 @@
   }
 
   td {
-    padding: 0.2em 0.2em 0.2em 1em;
+    padding: 0.2em 1em;
+  }
+
+ .position {
+    width: 100px;
   }
 
   & > :last-child {

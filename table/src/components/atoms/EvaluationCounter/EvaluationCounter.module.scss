@@ -4,7 +4,7 @@
 .wrapper {
   position: relative;
   border: none;
-  font-size: 10px;
+  font-size: 12px;
   height: 2em;
   width: 10em;
   mask-image: url(../../../assets/icons/star.svg);
@@ -20,7 +20,8 @@
     height: inherit;
     cursor: pointer;
 
-    &:checked, &:hover {
+    &:checked,
+    &:hover {
       background-color: $gold;
     }
 
@@ -40,18 +41,22 @@
     z-index: 5;
     width: 2em;
   }
+
   & input:nth-of-type(2) {
     z-index: 4;
     width: 4em;
   }
+
   & input:nth-of-type(3) {
     z-index: 3;
     width: 6em;
   }
+
   & input:nth-of-type(4) {
     z-index: 2;
     width: 8em;
   }
+
   & input:nth-of-type(5) {
     z-index: 1;
     width: 10em;
