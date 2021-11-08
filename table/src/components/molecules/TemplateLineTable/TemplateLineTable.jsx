@@ -4,7 +4,6 @@ import SelectAction from '../../atoms/SelectAction/SelectAction';
 import styles from './TemplateLineTable.module.scss';
 
 export default function TemplateLineTable() {
-
   // maybe should use NavLink
   return (
     <tr className={styles.wrapper}>
@@ -16,9 +15,7 @@ export default function TemplateLineTable() {
         <a href="">Mama said</a>
       </td>
       <td className={styles.position}>
-        <time>
-          10.13.2021
-        </time>
+        <time>10.13.2021</time>
       </td>
       <td className={styles.position}>
         <EvaluationCounter />

@@ -7,14 +7,8 @@ import TemplateLineTable from './components/molecules/TemplateLineTable/Template
 function App() {
   return (
     <div className="App">
-      <TabToggle
-        title="Table"
-        isActive={true}
-      />
-      <TabToggle
-        title="Add"
-        isActive={false}
-      />
+      <TabToggle title="Table" isActive={true} />
+      <TabToggle title="Add" isActive={false} />
       <table>
         <thead>
           <TableHead />
