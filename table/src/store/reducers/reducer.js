@@ -1,4 +1,4 @@
-import { GET_BODY_CONTENT, TOGGLE_CHECKED_LINE, TOGGLE_CHECKED_ALL_LINE } from './actions.js';
+import { GET_BODY_CONTENT, TOGGLE_CHECKED_LINE, TOGGLE_CHECKED_ALL_LINE, SET_EVALUATION } from './actions.js';
 
 function controlIsAllLineChecked(arr) {
   const countNotCheckedLine = arr.filter(item => !item.isChecked).length;
@@ -122,6 +122,19 @@ export default function reducer(state = initState, action) {
       }
 
       return stateCopy;
+    }
+    case SET_EVALUATION: {
+      return {
+        ...state,
+        bodyTable: [...state.bodyTable.map((item) => {
+          if(`evaluation${item.id}` === action.name) {
+            item.evaluation = action.value;
+            return item;
+          } else {
+            return item;
+          }
+        })]
+      }
     }
     default:
       return state;

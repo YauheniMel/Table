@@ -1,6 +1,6 @@
 import TemplateLineTable from '../../molecules/TemplateLineTable/TemplateLineTable';
 
-export default function TableBody({content, onChange}) {
+export default function TableBody({content, onChange, setEvaluation}) {
   const tableItems = content.map((item) => {
     return (
       <TemplateLineTable
@@ -13,6 +13,7 @@ export default function TableBody({content, onChange}) {
         evaluation={item.evaluation}
         location={item.location}
         onChange={onChange}
+        setEvaluation={setEvaluation}
       />
     );
   })

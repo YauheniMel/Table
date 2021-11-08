@@ -1,6 +1,7 @@
 export const GET_BODY_CONTENT = 'GET_BODY_CONTENT';
 export const TOGGLE_CHECKED_LINE = 'TOGGLE_CHECKED_LINE';
 export const TOGGLE_CHECKED_ALL_LINE = 'TOGGLE_CHECKED_ALL_LINE';
+export const SET_EVALUATION = 'SET_EVALUATION';
 
 export function getBodyContent() {
   return {
@@ -20,5 +21,13 @@ export function toggleCheckedAllLine(isAllChecked) {
   return {
     type: TOGGLE_CHECKED_ALL_LINE,
     isAllChecked: !isAllChecked
+  }
+}
+
+export function setEvaluation(name, value) {
+  return {
+    type: SET_EVALUATION,
+    name: name,
+    value: value
   }
 }

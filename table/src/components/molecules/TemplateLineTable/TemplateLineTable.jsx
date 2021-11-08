@@ -3,7 +3,7 @@ import EvaluationCounter from '../../atoms/EvaluationCounter/EvaluationCounter';
 import SelectAction from '../../atoms/SelectAction/SelectAction';
 import styles from './TemplateLineTable.module.scss';
 
-export default function TemplateLineTable({isChecked, band, songName, datePost, evaluation, location, id, onChange}) {
+export default function TemplateLineTable({isChecked, band, songName, datePost, evaluation, location, id, onChange, setEvaluation}) {
   // maybe should use NavLink
   return (
     <tr className={styles.wrapper}>
@@ -18,7 +18,11 @@ export default function TemplateLineTable({isChecked, band, songName, datePost, 
         <time>{datePost}</time>
       </td>
       <td className={styles.position}>
-        <EvaluationCounter evaluation={evaluation} name={`evaluation${id}`} />
+        <EvaluationCounter
+          evaluation={evaluation}
+          name={`evaluation${id}`}
+          setEvaluation={setEvaluation}
+        />
       </td>
       <td>{`${location.city},${location.country}`}</td>
       <td>
