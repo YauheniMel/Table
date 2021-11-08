@@ -1,5 +1,6 @@
 import InputFile from '../../atoms/InputFile/InputFile';
 import InputText from '../../atoms/InputText/InputText';
+import TextArea from '../../atoms/TextArea/TextArea';
 import styles from './FormPageLayout.module.scss';
 
 export default function FormPageLayout() {
@@ -12,16 +13,19 @@ export default function FormPageLayout() {
           <InputText title="Band name" name="band" />
         </label>
         <label>
-          <InputFile name="photo" title="Upload photo" />
+          <InputText title="Country" name="country" />
         </label>
         <label>
           <InputText title="City" name="city" />
         </label>
         <label>
+          <InputFile name="photo" title="Upload photo" />
+        </label>
+        <label>
           <InputFile name="song" title="Upload song" />
         </label>
         <label>
-          <InputText title="Country" name="country" />
+          <TextArea name="comment" title="Add comments" />
         </label>
       </fieldset>
     </form>
