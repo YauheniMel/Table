@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getBodyContent } from '../../../store/reducers/reducer';
+import { getBodyContent, toggleCheckedAllLine, toggleCheckedLine } from '../../../store/reducers/actions';
 import TabToggle from '../../atoms/TabToggle/TabToggle';
 import Pagination from '../../molecules/Pagination/Pagination';
 import TableHead from '../../molecules/TableHead/TableHead';
@@ -11,11 +11,21 @@ export default function TableContainer() {
   const state = useSelector((state) => state.reducer);
   const dispatch = useDispatch();
 
+  function handleChangeCheckbox(isChecked, id) {
+    dispatch(toggleCheckedLine(isChecked, id));
+  }
+
+  function handleChangeAllCheckbox(isAllChecked) {
+    dispatch(toggleCheckedAllLine(isAllChecked));
+  }
+
+
   useEffect(() => {
     dispatch(getBodyContent());
+
   }, [dispatch])
 
-  const { bodyTable } = state;
+  const { bodyTable, isAllChecked } = state;
 
   return (
     <div className="container">
@@ -31,8 +41,8 @@ export default function TableContainer() {
         <col />
         <col width= "66"/>
       </colgroup>
-        <TableHead />
-        <TableBody content={bodyTable} />
+        <TableHead onChange={handleChangeAllCheckbox} isChecked={isAllChecked} />
+        <TableBody onChange={handleChangeCheckbox} content={bodyTable} />
         <tfoot>
           <tr>
             <td colSpan="7">
