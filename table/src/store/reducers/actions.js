@@ -15,21 +15,21 @@ export function toggleCheckedLine(isChecked, id) {
   return {
     id: id,
     type: TOGGLE_CHECKED_LINE,
-    isChecked: !isChecked
-  }
+    isChecked: !isChecked,
+  };
 }
 
 export function toggleCheckedAllLine(isAllChecked) {
   return {
     type: TOGGLE_CHECKED_ALL_LINE,
-    isAllChecked: !isAllChecked
-  }
+    isAllChecked: !isAllChecked,
+  };
 }
 
 export function setEvaluation(name, value) {
   return {
     type: SET_EVALUATION,
     name: name,
-    value: value
-  }
+    value: value,
+  };
 }

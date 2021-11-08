@@ -2,7 +2,7 @@ import Checkbox from '../../atoms/Checkbox/Checkbox';
 import TemplateRegulator from '../../atoms/TemplateRegulator/TemplateRegulator';
 import styles from './TableHead.module.scss';
 
-export default function TableHead({onChange, isAllChecked}) {
+export default function TableHead({ onChange, isAllChecked }) {
   return (
     <thead>
       <tr className={styles.wrapper}>

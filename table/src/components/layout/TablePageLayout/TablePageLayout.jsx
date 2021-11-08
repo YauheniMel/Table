@@ -3,7 +3,6 @@ import { setEvaluation, toggleCheckedAllLine, toggleCheckedLine } from '../../..
 import TableApiContainer from './TableApiContainer';
 
 export default function TablePageLayout() {
-
   const state = useSelector((state) => state.reducer);
   const dispatch = useDispatch();
 
@@ -16,7 +15,7 @@ export default function TablePageLayout() {
   }
 
   function handleChangeEvaluation(name) {
-    dispatch(setEvaluation(name, Number(event.target.value)))
+    dispatch(setEvaluation(name, Number(event.target.value)));
   }
 
   return (

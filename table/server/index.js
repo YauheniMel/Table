@@ -9,7 +9,6 @@ const dataJSON = path.resolve(__dirname, './public/data/data.json');
 //Body table
 
 app.get('/api', (req, res) => {
-
   fs.readFile(dataJSON, (err, data) => {
     if (err) throw new Error(err);
 

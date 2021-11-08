@@ -1,6 +1,6 @@
 import styles from './Checkbox.module.scss';
 
-export default function Checkbox({isChecked, onChange, id}) {
+export default function Checkbox({ isChecked, onChange, id }) {
   return (
     <div className={styles.wrapper}>
       <label>
