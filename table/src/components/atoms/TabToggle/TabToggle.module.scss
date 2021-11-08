@@ -1,14 +1,18 @@
 @import '../../../style/colors';
 @import '../../../style/typography';
 
-.title {
+.link {
   position: relative;
   font-size: $font-size-desktop;
-  font-weight: normal;
   display: inline-block;
   padding: 3px 18px 3px 3px;
   cursor: pointer;
   border-right: 1px solid $gray-2;
+  border-bottom: 1px solid $gray-2;
+
+  &:first-child {
+    border-left: 1px solid $gray-2;
+  }
 
   &::after,
   &::before {

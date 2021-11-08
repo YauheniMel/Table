@@ -1,11 +1,13 @@
-export const GET_BODY_CONTENT = 'GET_BODY_CONTENT';
+export const GET_STATE = 'GET_STATE';
 export const TOGGLE_CHECKED_LINE = 'TOGGLE_CHECKED_LINE';
 export const TOGGLE_CHECKED_ALL_LINE = 'TOGGLE_CHECKED_ALL_LINE';
 export const SET_EVALUATION = 'SET_EVALUATION';
 
-export function getBodyContent() {
+export function getState(response) {
   return {
-    type: GET_BODY_CONTENT,
+    type: GET_STATE,
+    bodyTable: response.bodyTable,
+    isAllChecked: response.isAllChecked,
   };
 }
 
