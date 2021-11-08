@@ -1,5 +1,3 @@
-import './InputText.module.scss';
-
 export default function InputText({title, name}) {
 
   return (
