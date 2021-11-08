@@ -4,7 +4,7 @@ import { getBodyContent } from '../../../store/reducers/reducer';
 import TabToggle from '../../atoms/TabToggle/TabToggle';
 import Pagination from '../../molecules/Pagination/Pagination';
 import TableHead from '../../molecules/TableHead/TableHead';
-import TemplateLineTable from '../../molecules/TemplateLineTable/TemplateLineTable';
+import TableBody from '../TableBody/TableBody';
 
 export default function TableContainer() {
 
@@ -17,22 +17,22 @@ export default function TableContainer() {
 
   const { bodyTable } = state;
 
-  console.log(bodyTable);
-
   return (
     <div className="container">
       <TabToggle title="Table" isActive={true} />
       <TabToggle title="Add" isActive={false} />
       <table>
-        <thead>
-          <TableHead />
-        </thead>
-        <tbody>
-          <TemplateLineTable />
-          <TemplateLineTable />
-          <TemplateLineTable />
-          <TemplateLineTable />
-        </tbody>
+      <colgroup>
+        <col width= "30"/>
+        <col />
+        <col />
+        <col width= "120"/>
+        <col width= "151"/>
+        <col />
+        <col width= "66"/>
+      </colgroup>
+        <TableHead />
+        <TableBody content={bodyTable} />
         <tfoot>
           <tr>
             <td colSpan="7">

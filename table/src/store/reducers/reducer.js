@@ -9,6 +9,7 @@ export function getBodyContent() {
 const initState = {
   bodyTable: [
     {
+      id: 1,
       isChecked: false,
       band: 'Nirvana',
       songName: 'School',
@@ -17,6 +18,7 @@ const initState = {
       location: { city: 'Seattle', country: 'USA' },
     },
     {
+      id: 2,
       isChecked: false,
       band: 'Metallica',
       songName: 'American Idiot',
@@ -25,6 +27,7 @@ const initState = {
       location: { city: 'Los Angeles', country: 'USA' },
     },
     {
+      id: 3,
       isChecked: false,
       band: 'Green Day',
       songName: 'Mama said',
@@ -33,6 +36,7 @@ const initState = {
       location: { city: 'Los Angeles', country: 'USA' },
     },
     {
+      id: 4,
       isChecked: false,
       band: 'Metallica',
       songName: 'Mama said',
@@ -41,6 +45,7 @@ const initState = {
       location: { city: 'Los Angeles djnnjsn wqjnnwqjn jnsjqwn jqnsjqwn yggy', country: 'USA' },
     },
     {
+      id: 5,
       isChecked: true,
       band: 'Metallica jnnwnj jew ewnjw ewjndew enwwwwwwwwmk;',
       songName: 'Mama said',
@@ -49,6 +54,7 @@ const initState = {
       location: { city: 'Fjasjnsa', country: 'UK' },
     },
     {
+      id: 6,
       isChecked: false,
       band: 'Metallica',
       songName: 'Mama said',
@@ -57,6 +63,7 @@ const initState = {
       location: { city: 'Fjasjnsa', country: 'UK' },
     },
     {
+      id: 7,
       isChecked: true,
       band: 'Metallica',
       songName: 'Mama said jdjbdx njwj jwjqnnjqwn ejewjn ewdj',
@@ -66,6 +73,7 @@ const initState = {
     },
   ],
   targetLine: {
+    id: 3,
     isChecked: true,
     band: 'Metallica',
     songName: 'Mama said jdjbdx njwj jwjqnnjqwn ejewjn ewdj',
