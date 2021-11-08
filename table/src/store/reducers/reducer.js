@@ -58,7 +58,7 @@ const initState = {
       band: 'Metallica',
       songName: 'Mama said',
       datePost: '12/11/2021',
-      evaluation: 5,
+      evaluation: null,
       location: { city: 'Fjasjnsa', country: 'UK' },
     },
     {

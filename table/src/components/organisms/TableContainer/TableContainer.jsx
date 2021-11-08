@@ -26,7 +26,6 @@ export default function TableContainer() {
 
   useEffect(() => {
     dispatch(getBodyContent());
-
   }, [dispatch])
 
   const { bodyTable, isAllChecked } = state;
