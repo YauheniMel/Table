@@ -1,6 +1,6 @@
 import { GET_STATE, TOGGLE_CHECKED_LINE, TOGGLE_CHECKED_ALL_LINE, SET_EVALUATION } from './actions.js';
 
-function controlIsAllLineChecked(arr) {
+function controlIsAllLineChecked(arr) { // maybe bad practice
   const countNotCheckedLine = arr.filter(item => !item.isChecked).length;
   return countNotCheckedLine;
 }
