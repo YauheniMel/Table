@@ -1,7 +1,8 @@
 @import './style/colors';
 
 table {
-  width: 1400px;
+  table-layout: fixed;
+  width: 100%;
   border: 1px solid $gray-2;
   border-collapse: collapse;
 }

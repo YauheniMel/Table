@@ -3,23 +3,24 @@ import EvaluationCounter from '../../atoms/EvaluationCounter/EvaluationCounter';
 import SelectAction from '../../atoms/SelectAction/SelectAction';
 import styles from './TemplateLineTable.module.scss';
 
-export default function TemplateLineTable() {
-
+export default function TemplateLineTable({isChecked, band, songName, datePost, evaluation, location, id}) {
   // maybe should use NavLink
   return (
     <tr className={styles.wrapper}>
       <th>
-        <Checkbox />
+        <Checkbox isChecked={isChecked} />
       </th>
-      <td>Metallica</td>
+      <td>{band}</td>
       <td>
-        <a href="">Mama said</a>
+        <a href="">{songName}</a>
       </td>
-      <td>10.13.2021</td>
-      <td>
-        <EvaluationCounter />
+      <td className={styles.position}>
+        <time>{datePost}</time>
       </td>
-      <td>Los Angeles, USA</td>
+      <td className={styles.position}>
+        <EvaluationCounter evaluation={evaluation} name={`evaluation${id}`} />
+      </td>
+      <td>{`${location.city},${location.country}`}</td>
       <td>
         <SelectAction />
       </td>

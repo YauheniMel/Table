@@ -1,7 +1,6 @@
-import styles from './SelectAction.module.scss';
+import './SelectAction.module.scss';
 
 export default function SelectAction() {
-
   return (
     <select id="card" name="usercard">
       <option value="update">Update</option>

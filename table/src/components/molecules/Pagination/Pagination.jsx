@@ -1,14 +1,11 @@
 import styles from './Pagination.module.scss';
 
 export default function Pagination() {
-
   return (
     <div className={styles.wrapper}>
       <p>
         Total
-        <strong>
-          9
-        </strong>
+        <strong>9</strong>
       </p>
       <ul>
         <li className={styles.btn_prev}>
