@@ -6,6 +6,11 @@ body {
   font-family: Poppins;
 }
 
+.container {
+  max-width: 1400px;
+  margin: auto;
+}
+
 a {
   color: $primary;
   text-decoration: none;
