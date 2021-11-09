@@ -35,11 +35,10 @@ app.get('/details/:lineId', (req, res) => {
 
 //POST
 app.post('/api', (req, res) => {
-  let prevData;
   fs.readFile(dataJSON, (err, data) => {
     if (err) throw new Error(err);
 
-    prevData = JSON.parse(data);
+    let prevData = JSON.parse(data);
 
     req.body.id = +new Date();
 
@@ -59,11 +58,11 @@ app.post('/api', (req, res) => {
 //DELETE
 app.delete('/api/:lineId', (req, res) => {
   const { lineId } = req.params;
-  let prevData;
+
   fs.readFile(dataJSON, (err, data) => {
     if (err) throw new Error(err);
 
-    prevData = JSON.parse(data);
+    let prevData = JSON.parse(data);
 
     const newData = JSON.stringify({
       ...prevData,
@@ -77,6 +76,36 @@ app.delete('/api/:lineId', (req, res) => {
     });
   });
 });
+
+//PUT
+app.put('/api/:lineId', (req, res) => {
+  const { lineId } = req.params;
+
+  fs.readFile(dataJSON, (err, data) => {
+    if(err) throw new Error(err);
+
+    let prevData = JSON.parse(data);
+
+    const newData = JSON.stringify({
+      ...prevData,
+      bodyTable: [...prevData.bodyTable.map((item) => {
+        if(item.id == lineId) {
+          item.evaluation = req.body.value;
+          console.log(item.evaluation);
+          return item;
+        } else {
+          return item;
+        }
+      })]
+    })
+
+    fs.writeFile(dataJSON, newData, (err) => {
+      if (err) throw new Error(err);
+
+      res.send('Updated successfully');
+    });
+  })
+})
 
 app.get('*', (req, res) => {
   res.status(404).send('Resource not found');

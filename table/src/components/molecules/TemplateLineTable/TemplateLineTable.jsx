@@ -13,8 +13,8 @@ export default function TemplateLineTable({
   country,
   id,
   onChange,
-  setEvaluation,
   onChangeSelect,
+  onChangeEvaluation
 }) {
   function onClickLine(e) {
     e.preventDefault();
@@ -37,9 +37,10 @@ export default function TemplateLineTable({
       </td>
       <td onClick={onStop} className={styles.position}>
         <EvaluationCounter
+          id={id}
+          onChange={onChangeEvaluation}
           evaluation={evaluation}
           name={`evaluation${id}`}
-          setEvaluation={setEvaluation}
         />
       </td>
       <td>{`${city},${country}`}</td>

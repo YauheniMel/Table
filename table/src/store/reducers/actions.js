@@ -2,7 +2,6 @@ export const GET_STATE = 'GET_STATE';
 export const GET_TARGET_LINE_CONTENT = 'GET_TARGET_LINE_CONTENT';
 export const TOGGLE_CHECKED_LINE = 'TOGGLE_CHECKED_LINE';
 export const TOGGLE_CHECKED_ALL_LINE = 'TOGGLE_CHECKED_ALL_LINE';
-export const SET_EVALUATION = 'SET_EVALUATION';
 export const CREATE_CONTENT = 'CREATE_CONTENT';
 
 export function getState(response) {
@@ -31,14 +30,6 @@ export function toggleCheckedAllLine(isAllChecked) {
   return {
     type: TOGGLE_CHECKED_ALL_LINE,
     isAllChecked: !isAllChecked,
-  };
-}
-
-export function setEvaluation(name, value) {
-  return {
-    type: SET_EVALUATION,
-    name: name,
-    value: value,
   };
 }
 
