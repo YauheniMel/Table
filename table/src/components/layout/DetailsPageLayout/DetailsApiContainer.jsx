@@ -1,23 +1,24 @@
 import axios from 'axios';
 import { useEffect } from 'react';
 import { getTargetLineContent } from '../../../store/reducers/actions';
+import DetailsPageLayout from './DetailsPageLayout';
 
-export default function DetailsApiContainer({content, dispatch}) {
+export default function DetailsApiContainer({ content, dispatch, match }) {
   useEffect(() => {
     axios
-      .get('/details/4')
-      .then(response => response.data)
-      .then(data => dispatch(getTargetLineContent(...data)))
-      .catch(err => console.error(err));
-  },[]);
+      .get(`/details/${match.params.id}`)
+      .then((response) => response.data)
+      .then((data) => dispatch(getTargetLineContent(...data)))
+      .catch((err) => console.error(err));
+  }, [match.params.id]);
 
-  // need move in presentation componet
   return (
-    <div>
-      <h3>{content.band}</h3>
-      <strong>{content.songName}</strong>
-      <time>{content.datePost}</time>
-      <p>{content.history}</p>
-    </div>
+    <DetailsPageLayout
+      band={content.band}
+      song={content.songName}
+      date={content.datePost}
+      history={content.history}
+      photoURL={content.photoURL}
+    />
   );
 }

@@ -15,7 +15,7 @@ export function getTargetLineContent(content) {
   return {
     type: GET_TARGET_LINE_CONTENT,
     content: content,
-  }
+  };
 }
 
 export function toggleCheckedLine(isChecked, id) {

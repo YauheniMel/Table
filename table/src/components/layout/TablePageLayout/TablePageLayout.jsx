@@ -1,31 +1,28 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { setEvaluation, toggleCheckedAllLine, toggleCheckedLine } from '../../../store/reducers/actions';
-import TableApiContainer from './TableApiContainer';
+import Pagination from '../../molecules/Pagination/Pagination';
+import TableHead from '../../molecules/TableHead/TableHead';
+import TableBody from '../../organisms/TableBody/TableBody';
 
-export default function TablePageLayout() {
-  const state = useSelector((state) => state.reducer); // too much data
-  const dispatch = useDispatch(); // maybe in wrong place
-
-  function handleChangeCheckbox(isChecked, id) {
-    dispatch(toggleCheckedLine(isChecked, id));
-  }
-
-  function handleChangeAllCheckbox(isAllChecked) {
-    dispatch(toggleCheckedAllLine(isAllChecked));
-  }
-
-  function handleChangeEvaluation(name) {
-    dispatch(setEvaluation(name, Number(event.target.value)));
-  }
-
+export default function TablePageLayout({ onChangeAllCheckbox, isAllChecked, setEvaluation, onChangeCheckbox, content }) {
   return (
-    <TableApiContainer
-      onChangeAllCheckbox={handleChangeAllCheckbox}
-      isAllChecked={state.isAllChecked}
-      setEvaluation={handleChangeEvaluation}
-      onChangeCheckbox={handleChangeCheckbox}
-      content={state.bodyTable}
-      dispatch={dispatch}
-    />
+    <table>
+      <colgroup>
+        <col width="30" />
+        <col />
+        <col />
+        <col width="120" />
+        <col width="151" />
+        <col />
+        <col width="66" />
+      </colgroup>
+      <TableHead onChange={onChangeAllCheckbox} isAllChecked={isAllChecked} />
+      <TableBody setEvaluation={setEvaluation} onChange={onChangeCheckbox} content={content} />
+      <tfoot>
+        <tr>
+          <td colSpan="7">
+            <Pagination />
+          </td>
+        </tr>
+      </tfoot>
+    </table>
   );
 }

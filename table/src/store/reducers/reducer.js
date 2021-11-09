@@ -40,7 +40,6 @@ export default function reducer(state = initState, action) {
           }),
         ],
       };
-
       if (controlIsAllLineChecked(stateCopy.bodyTable)) {
         stateCopy.isAllChecked = false;
       } else {
