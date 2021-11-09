@@ -36,7 +36,11 @@ export default function TemplateLineTable({
         <time>{datePost}</time>
       </td>
       <td onClick={onStop} className={styles.position}>
-        <EvaluationCounter evaluation={evaluation} name={`evaluation${id}`} setEvaluation={setEvaluation} />
+        <EvaluationCounter
+          evaluation={evaluation}
+          name={`evaluation${id}`}
+          setEvaluation={setEvaluation}
+        />
       </td>
       <td>{`${city},${country}`}</td>
       <td onClick={onStop}>

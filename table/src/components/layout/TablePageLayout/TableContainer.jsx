@@ -1,5 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { setEvaluation, toggleCheckedAllLine, toggleCheckedLine } from '../../../store/reducers/actions';
+import {
+  setEvaluation,
+  toggleCheckedAllLine,
+  toggleCheckedLine,
+} from '../../../store/reducers/actions';
 import TableApiContainer from './TableApiContainer';
 
 export default function TableContainer() {

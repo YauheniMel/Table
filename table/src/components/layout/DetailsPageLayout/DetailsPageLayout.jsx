@@ -1,4 +1,10 @@
-export default function DetailsPageLayout({ band, song, date, comment, photoURL }) {
+export default function DetailsPageLayout({
+  band,
+  song,
+  date,
+  comment,
+  photoURL,
+}) {
   return (
     <div>
       <h3>{band}</h3>

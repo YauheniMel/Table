@@ -26,7 +26,9 @@ app.get('/details/:lineId', (req, res) => {
   fs.readFile(dataJSON, (err, data) => {
     if (err) throw new Error(err);
 
-    const resData = JSON.parse(data).bodyTable.filter((item) => item.id == lineId);
+    const resData = JSON.parse(data).bodyTable.filter(
+      (item) => item.id == lineId
+    );
     res.send(resData);
   });
 });

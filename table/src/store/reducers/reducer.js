@@ -41,7 +41,8 @@ const initState = {
     isChecked: false,
     evaluation: null,
     song: 'Blablablablablabla',
-    photoURL: 'https://amtshows.com/wp-content/uploads/2014/01/bands-on-the-rise-silhouette-of-rock-band-on-stage.jpg',
+    photoURL:
+      'https://amtshows.com/wp-content/uploads/2014/01/bands-on-the-rise-silhouette-of-rock-band-on-stage.jpg',
   },
 };
 

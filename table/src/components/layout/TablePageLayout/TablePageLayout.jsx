@@ -2,7 +2,14 @@ import Pagination from '../../molecules/Pagination/Pagination';
 import TableHead from '../../molecules/TableHead/TableHead';
 import TableBody from '../../organisms/TableBody/TableBody';
 
-export default function TablePageLayout({ onChangeAllCheckbox, isAllChecked, setEvaluation, onChangeCheckbox, content, onChangeSelect }) {
+export default function TablePageLayout({
+  onChangeAllCheckbox,
+  isAllChecked,
+  setEvaluation,
+  onChangeCheckbox,
+  content,
+  onChangeSelect,
+}) {
   return (
     <table>
       <colgroup>
@@ -15,7 +22,12 @@ export default function TablePageLayout({ onChangeAllCheckbox, isAllChecked, set
         <col width="66" />
       </colgroup>
       <TableHead onChange={onChangeAllCheckbox} isAllChecked={isAllChecked} />
-      <TableBody setEvaluation={setEvaluation} onChangeSelect={onChangeSelect} onChange={onChangeCheckbox} content={content} />
+      <TableBody
+        setEvaluation={setEvaluation}
+        onChangeSelect={onChangeSelect}
+        onChange={onChangeCheckbox}
+        content={content}
+      />
       <tfoot>
         <tr>
           <td colSpan="7">

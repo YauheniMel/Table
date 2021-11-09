@@ -12,5 +12,11 @@ export default function FormApiContainer({ handleChangeInput, state }) {
       .catch((err) => console.error(err));
   }
 
-  return <FormPageLayout onSubmit={handleSubmitForm} handleChangeInput={handleChangeInput} state={state} />;
+  return (
+    <FormPageLayout
+      onSubmit={handleSubmitForm}
+      handleChangeInput={handleChangeInput}
+      state={state}
+    />
+  );
 }

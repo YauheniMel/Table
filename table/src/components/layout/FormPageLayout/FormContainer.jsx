@@ -10,5 +10,7 @@ export default function FormContainer() {
     dispatch(createContent(elem.current.value, name));
   }
 
-  return <FormApiContainer handleChangeInput={handleChangeInput} state={state} />;
+  return (
+    <FormApiContainer handleChangeInput={handleChangeInput} state={state} />
+  );
 }
