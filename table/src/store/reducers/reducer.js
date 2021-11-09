@@ -30,7 +30,6 @@ const initState = {
   targetLine: {},
   isAllChecked: false,
   initContent: {
-    id: +new Date(),
     date: getDate(),
     band: '',
     country: '',
