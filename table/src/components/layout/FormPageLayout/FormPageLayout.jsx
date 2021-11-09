@@ -33,12 +33,14 @@ export default function FormPageLayout({ handleChangeInput, onSubmit, state }) {
             value={state.city}
           />
         </label>
-        {/* <label>
-          <InputFile name="photo" title="Upload photo" />
-        </label>
-        <label>
-          <InputFile name="song" title="Upload song" />
-        </label> */}
+        <InputFile
+          name="photo"
+          title="Upload photo"
+        />
+        <InputFile
+          name="song"
+          title="Upload song"
+        />
         <label>
           <TextArea
             name="comment"
