@@ -2,9 +2,9 @@
   max-width: 40%;
   padding: 30px;
 
-  input {
-    margin: 20px 0;
-    height: 30px;
+  input:not([type="file"]) {
+    margin: 10px 0;
+    height: 40px;
     width: 100%;
   }
 }
