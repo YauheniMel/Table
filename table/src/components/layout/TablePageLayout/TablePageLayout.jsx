@@ -3,8 +3,8 @@ import { setEvaluation, toggleCheckedAllLine, toggleCheckedLine } from '../../..
 import TableApiContainer from './TableApiContainer';
 
 export default function TablePageLayout() {
-  const state = useSelector((state) => state.reducer);
-  const dispatch = useDispatch();
+  const state = useSelector((state) => state.reducer); // too much data
+  const dispatch = useDispatch(); // maybe in wrong place
 
   function handleChangeCheckbox(isChecked, id) {
     dispatch(toggleCheckedLine(isChecked, id));

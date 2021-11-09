@@ -1,4 +1,4 @@
-import { GET_STATE, TOGGLE_CHECKED_LINE, TOGGLE_CHECKED_ALL_LINE, SET_EVALUATION } from './actions.js';
+import { GET_STATE, TOGGLE_CHECKED_LINE, TOGGLE_CHECKED_ALL_LINE, SET_EVALUATION, GET_TARGET_LINE_CONTENT } from './actions.js';
 
 function controlIsAllLineChecked(arr) {
   // maybe bad practice
@@ -20,6 +20,11 @@ export default function reducer(state = initState, action) {
         bodyTable: [...action.bodyTable], // location not cloned
         targetLine: { ...action.targetLine },
         isAllChecked: action.isAllChecked,
+      };
+    case GET_TARGET_LINE_CONTENT:
+      return {
+        ...state,
+        targetLine: { ...action.content },
       };
     case TOGGLE_CHECKED_LINE: {
       const stateCopy = {

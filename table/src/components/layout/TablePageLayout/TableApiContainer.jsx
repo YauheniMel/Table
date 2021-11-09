@@ -10,9 +10,11 @@ export default function TableApiContainer({ onChangeAllCheckbox, isAllChecked, s
     axios
       .get('/api')
       .then((response) => response.data)
-      .then((data) => dispatch(getState(data)));
+      .then((data) => dispatch(getState(data)))
+      .catch(err => console.error(err));
   }, []);
 
+  // need move in presentation componet
   return (
     <table>
       <colgroup>
