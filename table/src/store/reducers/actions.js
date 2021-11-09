@@ -3,6 +3,7 @@ export const GET_TARGET_LINE_CONTENT = 'GET_TARGET_LINE_CONTENT';
 export const TOGGLE_CHECKED_LINE = 'TOGGLE_CHECKED_LINE';
 export const TOGGLE_CHECKED_ALL_LINE = 'TOGGLE_CHECKED_ALL_LINE';
 export const SET_EVALUATION = 'SET_EVALUATION';
+export const CREATE_CONTENT = 'CREATE_CONTENT';
 
 export function getState(response) {
   return {
@@ -39,4 +40,12 @@ export function setEvaluation(name, value) {
     name: name,
     value: value,
   };
+}
+
+export function createContent(content, name) {
+  return {
+    type: CREATE_CONTENT,
+    content: content,
+    name: name
+  }
 }

@@ -32,7 +32,7 @@ export default function Pagination() {
       </ul>
       <form action="">
         <label>
-          <button type="submit">Jump to page:</button>
+          <button className={styles.button} type="submit">Jump to page:</button>
           <input type="number" />
         </label>
       </form>

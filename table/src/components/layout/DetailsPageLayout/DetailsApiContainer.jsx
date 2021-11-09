@@ -17,7 +17,7 @@ export default function DetailsApiContainer({ content, dispatch, match }) {
       band={content.band}
       song={content.songName}
       date={content.datePost}
-      history={content.history}
+      comment={content.comment}
       photoURL={content.photoURL}
     />
   );
