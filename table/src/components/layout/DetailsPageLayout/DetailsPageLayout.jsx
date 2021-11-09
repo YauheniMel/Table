@@ -1,14 +1,11 @@
-import { useDispatch } from 'react-redux';
-import { useSelector } from 'react-redux';
-import DetailsApiContainer from './DetailsApiContainer';
-
-export default function DetailsPageLayout() {
-  const content = useSelector((state) => state.reducer.targetLine);
-  const dispatch = useDispatch(); // maybe in wrong place
+export default function DetailsPageLayout({ band, song, date, history, photoURL }) {
   return (
-    <DetailsApiContainer
-      content={content}
-      dispatch={dispatch}
-    />
+    <div>
+      <h3>{band}</h3>
+      <strong>{song}</strong>
+      <time>{date}</time>
+      <p>{history}</p>
+      <img src={photoURL} alt="" />
+    </div>
   );
 }

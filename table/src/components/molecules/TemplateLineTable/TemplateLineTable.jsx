@@ -4,24 +4,30 @@ import SelectAction from '../../atoms/SelectAction/SelectAction';
 import styles from './TemplateLineTable.module.scss';
 
 export default function TemplateLineTable({ isChecked, band, songName, datePost, evaluation, location, id, onChange, setEvaluation }) {
-  // maybe should use NavLink
+  function onClickLine(e) {
+    e.preventDefault();
+    window.location.href = `/details/${id}`;
+  }
+
+  function onStop(e) {
+    e.stopPropagation();
+  }
+
   return (
-    <tr className={styles.wrapper}>
-      <th>
+    <tr className={styles.wrapper} onClick={onClickLine}>
+      <th onClick={onStop}>
         <Checkbox id={id} onChange={onChange} isChecked={isChecked} />
       </th>
       <td>{band}</td>
-      <td>
-        <a href="">{songName}</a>
-      </td>
+      <td>{songName}</td>
       <td className={styles.position}>
         <time>{datePost}</time>
       </td>
-      <td className={styles.position}>
+      <td onClick={onStop} className={styles.position}>
         <EvaluationCounter evaluation={evaluation} name={`evaluation${id}`} setEvaluation={setEvaluation} />
       </td>
       <td>{`${location.city},${location.country}`}</td>
-      <td>
+      <td onClick={onStop}>
         <SelectAction />
       </td>
     </tr>
