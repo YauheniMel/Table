@@ -8,10 +8,11 @@ export default function TableBody({ content, onChange, setEvaluation }) {
         id={item.id}
         isChecked={item.isChecked}
         band={item.band}
-        songName={item.songName}
-        datePost={item.datePost}
+        song={item.song}
+        datePost={item.date}
         evaluation={item.evaluation}
-        location={item.location}
+        country={item.country}
+        city={item.city}
         onChange={onChange}
         setEvaluation={setEvaluation}
       />

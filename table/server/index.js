@@ -2,12 +2,14 @@ const express = require('express');
 const path = require('path');
 const fs = require('fs');
 const app = express();
+app.use(express.urlencoded())
+app.use(express.json())
 const port = process.env.PORT || 5000;
 
 const dataJSON = path.resolve(__dirname, './public/data/data.json');
 
 //Body table
-
+// GET
 app.get('/api', (req, res) => {
   fs.readFile(dataJSON, (err, data) => {
     if (err) throw new Error(err);
@@ -26,6 +28,28 @@ app.get('/details/:lineId', (req, res) => {
     res.send(resData);
   });
 });
+
+//POST
+app.post('/api', (req, res) => {
+  let prevData;
+  fs.readFile(dataJSON, (err, data) => {
+    if (err) throw new Error(err);
+
+    prevData = JSON.parse(data);
+
+    const newData = JSON.stringify({
+      ...prevData,
+      bodyTable: [...prevData.bodyTable, req.body]
+    });
+
+
+    fs.writeFile(dataJSON, newData, (err) => {
+      if (err) throw new Error(err);
+
+      res.send("File written successfully");
+    })
+  });
+})
 
 app.get('*', (req, res) => {
   res.status(404).send('Resource not found');
