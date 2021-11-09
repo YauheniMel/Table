@@ -2,7 +2,6 @@ import {
   GET_STATE,
   TOGGLE_CHECKED_LINE,
   TOGGLE_CHECKED_ALL_LINE,
-  SET_EVALUATION,
   GET_TARGET_LINE_CONTENT,
   CREATE_CONTENT,
 } from './actions.js';
@@ -51,7 +50,7 @@ export default function reducer(state = initState, action) {
     case GET_STATE:
       return {
         ...state,
-        bodyTable: [...action.bodyTable], // location not cloned
+        bodyTable: [...action.bodyTable],
         targetLine: { ...action.targetLine },
         isAllChecked: action.isAllChecked,
       };
@@ -95,21 +94,6 @@ export default function reducer(state = initState, action) {
       };
 
       return stateCopy;
-    }
-    case SET_EVALUATION: {
-      return {
-        ...state,
-        bodyTable: [
-          ...state.bodyTable.map((item) => {
-            if (`evaluation${item.id}` === action.name) {
-              item.evaluation = action.value;
-              return item;
-            } else {
-              return item;
-            }
-          }),
-        ],
-      };
     }
     case CREATE_CONTENT: {
       return {

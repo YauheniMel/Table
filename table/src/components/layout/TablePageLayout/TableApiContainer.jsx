@@ -6,21 +6,29 @@ import TablePageLayout from './TablePageLayout';
 export default function TableApiContainer({
   onChangeAllCheckbox,
   isAllChecked,
-  setEvaluation,
   content,
   dispatch,
-  handleChangeSelect,
   onChangeCheckbox,
 }) {
   const [isDelete, setIsDelete] = useState(null);
+  const [isUpdate, setIsUpdate] = useState(null);
 
   function handleChangeSelect(event, id) {
-    // need control select
+    // need control select?
     axios
       .delete(`/api/${id}`)
       .then((response) => console.log(response)) // need install toastify
       .catch((err) => console.error(err))
       .finally(() => setIsDelete(true));
+  }
+
+  function handleChangeEvaluation(id, value) {
+    // need control input?
+    axios
+      .put(`api/${id}`, {value})
+      .then((response) => console.log(response))
+      .catch((err) => console.error(err))
+      .finally(() => setIsUpdate(true));
   }
 
   useEffect(() => {
@@ -29,17 +37,20 @@ export default function TableApiContainer({
       .then((response) => response.data)
       .then((data) => dispatch(getState(data)))
       .catch((err) => console.error(err))
-      .finally(() => setIsDelete(null));
-  }, [isDelete]);
+      .finally(() => {
+        setIsDelete(null);
+        setIsUpdate(null);
+      });
+  }, [isDelete, isUpdate]);
 
   return (
     <TablePageLayout
       onChangeAllCheckbox={onChangeAllCheckbox}
       isAllChecked={isAllChecked}
-      setEvaluation={setEvaluation}
       onChangeCheckbox={onChangeCheckbox}
       content={content}
       onChangeSelect={handleChangeSelect}
+      onChangeEvaluation={handleChangeEvaluation}
     />
   );
 }

@@ -5,10 +5,10 @@ import TableBody from '../../organisms/TableBody/TableBody';
 export default function TablePageLayout({
   onChangeAllCheckbox,
   isAllChecked,
-  setEvaluation,
   onChangeCheckbox,
   content,
   onChangeSelect,
+  onChangeEvaluation
 }) {
   return (
     <table>
@@ -23,7 +23,7 @@ export default function TablePageLayout({
       </colgroup>
       <TableHead onChange={onChangeAllCheckbox} isAllChecked={isAllChecked} />
       <TableBody
-        setEvaluation={setEvaluation}
+        onChangeEvaluation={onChangeEvaluation}
         onChangeSelect={onChangeSelect}
         onChange={onChangeCheckbox}
         content={content}
