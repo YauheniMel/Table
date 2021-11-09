@@ -3,7 +3,7 @@ import EvaluationCounter from '../../atoms/EvaluationCounter/EvaluationCounter';
 import SelectAction from '../../atoms/SelectAction/SelectAction';
 import styles from './TemplateLineTable.module.scss';
 
-export default function TemplateLineTable({ isChecked, band, song, datePost, evaluation, city, country, id, onChange, setEvaluation }) {
+export default function TemplateLineTable({ isChecked, band, song, datePost, evaluation, city, country, id, onChange, setEvaluation, onChangeSelect }) {
   function onClickLine(e) {
     e.preventDefault();
     window.location.href = `/details/${id}`;
@@ -28,7 +28,7 @@ export default function TemplateLineTable({ isChecked, band, song, datePost, eva
       </td>
       <td>{`${city},${country}`}</td>
       <td onClick={onStop}>
-        <SelectAction />
+        <SelectAction id={id} onChange={onChangeSelect} />
       </td>
     </tr>
   );

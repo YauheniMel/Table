@@ -9,9 +9,7 @@ export default function FormApiContainer({handleChangeInput, state}) {
 
     axios
       .post('/api', state)
-      .then(response => {
-        debugger
-      })
+      .then(response => console.log(response))
       .catch(err => console.error(err))
   }
 

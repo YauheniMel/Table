@@ -8,6 +8,9 @@ const port = process.env.PORT || 5000;
 
 const dataJSON = path.resolve(__dirname, './public/data/data.json');
 
+
+// need fix error request
+
 //Body table
 // GET
 app.get('/api', (req, res) => {
@@ -37,6 +40,8 @@ app.post('/api', (req, res) => {
 
     prevData = JSON.parse(data);
 
+    req.body.id = +new Date();
+
     const newData = JSON.stringify({
       ...prevData,
       bodyTable: [...prevData.bodyTable, req.body]
@@ -47,6 +52,29 @@ app.post('/api', (req, res) => {
       if (err) throw new Error(err);
 
       res.send("File written successfully");
+    })
+  });
+})
+
+//DELETE
+app.delete('/api/:lineId', (req, res) => {
+  const { lineId } = req.params;
+  let prevData;
+  fs.readFile(dataJSON, (err, data) => {
+    if (err) throw new Error(err);
+
+    prevData = JSON.parse(data);
+
+
+    const newData = JSON.stringify({
+      ...prevData,
+      bodyTable: [...prevData.bodyTable.filter(item => item.id != lineId)]
+    });
+
+    fs.writeFile(dataJSON, newData, (err) => {
+      if (err) throw new Error(err);
+
+      res.send("Deleted successfully");
     })
   });
 })
