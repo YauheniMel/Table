@@ -46,6 +46,6 @@ export function createContent(content, name) {
   return {
     type: CREATE_CONTENT,
     content: content,
-    name: name
-  }
+    name: name,
+  };
 }

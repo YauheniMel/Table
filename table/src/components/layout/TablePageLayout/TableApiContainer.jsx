@@ -3,17 +3,24 @@ import { useEffect, useState } from 'react';
 import { getState } from '../../../store/reducers/actions';
 import TablePageLayout from './TablePageLayout';
 
-export default function TableApiContainer({ onChangeAllCheckbox, isAllChecked, setEvaluation, content, dispatch, handleChangeSelect, onChangeCheckbox }) {
-
+export default function TableApiContainer({
+  onChangeAllCheckbox,
+  isAllChecked,
+  setEvaluation,
+  content,
+  dispatch,
+  handleChangeSelect,
+  onChangeCheckbox,
+}) {
   const [isDelete, setIsDelete] = useState(null);
 
-
-  function handleChangeSelect(event, id) { // need control select
+  function handleChangeSelect(event, id) {
+    // need control select
     axios
       .delete(`/api/${id}`)
-      .then(response => console.log(response)) // need install toastify
-      .catch(err => console.error(err))
-      .finally(() => setIsDelete(true))
+      .then((response) => console.log(response)) // need install toastify
+      .catch((err) => console.error(err))
+      .finally(() => setIsDelete(true));
   }
 
   useEffect(() => {
@@ -23,7 +30,6 @@ export default function TableApiContainer({ onChangeAllCheckbox, isAllChecked, s
       .then((data) => dispatch(getState(data)))
       .catch((err) => console.error(err))
       .finally(() => setIsDelete(null));
-
   }, [isDelete]);
 
   return (

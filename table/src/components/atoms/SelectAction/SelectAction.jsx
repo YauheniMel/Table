@@ -1,7 +1,7 @@
 import React from 'react';
 import './SelectAction.module.scss';
 
-export default function SelectAction({onChange, id}) {
+export default function SelectAction({ onChange, id }) {
   const ref = React.createRef();
 
   return (

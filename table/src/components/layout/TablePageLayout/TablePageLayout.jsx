@@ -15,12 +15,7 @@ export default function TablePageLayout({ onChangeAllCheckbox, isAllChecked, set
         <col width="66" />
       </colgroup>
       <TableHead onChange={onChangeAllCheckbox} isAllChecked={isAllChecked} />
-      <TableBody
-        setEvaluation={setEvaluation}
-        onChangeSelect={onChangeSelect}
-        onChange={onChangeCheckbox}
-        content={content}
-      />
+      <TableBody setEvaluation={setEvaluation} onChangeSelect={onChangeSelect} onChange={onChangeCheckbox} content={content} />
       <tfoot>
         <tr>
           <td colSpan="7">

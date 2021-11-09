@@ -1,4 +1,11 @@
-import { GET_STATE, TOGGLE_CHECKED_LINE, TOGGLE_CHECKED_ALL_LINE, SET_EVALUATION, GET_TARGET_LINE_CONTENT, CREATE_CONTENT } from './actions.js';
+import {
+  GET_STATE,
+  TOGGLE_CHECKED_LINE,
+  TOGGLE_CHECKED_ALL_LINE,
+  SET_EVALUATION,
+  GET_TARGET_LINE_CONTENT,
+  CREATE_CONTENT,
+} from './actions.js';
 
 function controlIsAllLineChecked(arr) {
   // maybe bad practice
@@ -10,15 +17,11 @@ function getDate() {
   const date = new Date();
   let day, month, year;
 
-  date.getDate() < 10
-    ? day = `0${date.getDate()}`
-    : day = date.getDate();
+  date.getDate() < 10 ? (day = `0${date.getDate()}`) : (day = date.getDate());
 
   month = date.getMonth() + 1;
 
-  month < 10
-    ? month = `0${month}`
-    : month;
+  month < 10 ? (month = `0${month}`) : month;
 
   year = date.getFullYear();
 
@@ -36,10 +39,10 @@ const initState = {
     city: '',
     comment: '',
     isChecked: false,
-    evaluation:null,
+    evaluation: null,
     song: 'Blablablablablabla',
-    photoURL: 'https://amtshows.com/wp-content/uploads/2014/01/bands-on-the-rise-silhouette-of-rock-band-on-stage.jpg'
-  }
+    photoURL: 'https://amtshows.com/wp-content/uploads/2014/01/bands-on-the-rise-silhouette-of-rock-band-on-stage.jpg',
+  },
 };
 
 export default function reducer(state = initState, action) {
@@ -112,9 +115,9 @@ export default function reducer(state = initState, action) {
         ...state,
         initContent: {
           ...state.initContent,
-          [action.name]: action.content
-        }
-      }
+          [action.name]: action.content,
+        },
+      };
     }
     default:
       return state;
