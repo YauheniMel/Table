@@ -1,4 +1,5 @@
 export const GET_STATE = 'GET_STATE';
+export const GET_TARGET_LINE_CONTENT = 'GET_TARGET_LINE_CONTENT';
 export const TOGGLE_CHECKED_LINE = 'TOGGLE_CHECKED_LINE';
 export const TOGGLE_CHECKED_ALL_LINE = 'TOGGLE_CHECKED_ALL_LINE';
 export const SET_EVALUATION = 'SET_EVALUATION';
@@ -7,8 +8,14 @@ export function getState(response) {
   return {
     type: GET_STATE,
     bodyTable: response.bodyTable,
-    isAllChecked: response.isAllChecked,
   };
+}
+
+export function getTargetLineContent(content) {
+  return {
+    type: GET_TARGET_LINE_CONTENT,
+    content: content,
+  }
 }
 
 export function toggleCheckedLine(isChecked, id) {
