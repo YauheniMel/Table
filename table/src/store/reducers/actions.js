@@ -3,6 +3,7 @@ export const GET_TARGET_LINE_CONTENT = 'GET_TARGET_LINE_CONTENT';
 export const TOGGLE_CHECKED_LINE = 'TOGGLE_CHECKED_LINE';
 export const TOGGLE_CHECKED_ALL_LINE = 'TOGGLE_CHECKED_ALL_LINE';
 export const CREATE_CONTENT = 'CREATE_CONTENT';
+export const ADD_PHOTO = 'ADD_PHOTO';
 
 export function getState(response) {
   return {
@@ -38,5 +39,12 @@ export function createContent(content, name) {
     type: CREATE_CONTENT,
     content: content,
     name: name,
+  };
+}
+
+export function addPhoto(obj) {
+  return {
+    type: ADD_PHOTO,
+    content: obj,
   };
 }

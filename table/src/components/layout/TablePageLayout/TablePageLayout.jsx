@@ -8,7 +8,7 @@ export default function TablePageLayout({
   onChangeCheckbox,
   content,
   onChangeSelect,
-  onChangeEvaluation
+  onChangeEvaluation,
 }) {
   return (
     <table>

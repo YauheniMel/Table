@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { createContent } from '../../../store/reducers/actions';
+import { addPhoto, createContent } from '../../../store/reducers/actions';
 import FormApiContainer from './FormApiContainer';
 
 export default function FormContainer() {
@@ -10,7 +10,17 @@ export default function FormContainer() {
     dispatch(createContent(elem.current.value, name));
   }
 
+  function handleChangeInputFile(event) {
+    const photo = event.target.files[0];
+
+    dispatch(addPhoto(photo));
+  }
+
   return (
-    <FormApiContainer handleChangeInput={handleChangeInput} state={state} />
+    <FormApiContainer
+      handleChangeInput={handleChangeInput}
+      state={state}
+      handleChangeInputFile={handleChangeInputFile}
+    />
   );
 }

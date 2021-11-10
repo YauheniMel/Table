@@ -11,6 +11,7 @@ export default function InputText({ title, name, value, onChange }) {
       name={name}
       value={value}
       onChange={() => onChange(ref, name)}
+      required
     />
   );
 }

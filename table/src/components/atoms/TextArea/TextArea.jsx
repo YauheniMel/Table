@@ -11,6 +11,7 @@ export default function TextArea({ name, title, value, onChange }) {
       rows="10"
       value={value}
       onChange={() => onChange(ref, name)}
+      required
     />
   );
 }

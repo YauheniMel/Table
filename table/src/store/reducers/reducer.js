@@ -4,6 +4,7 @@ import {
   TOGGLE_CHECKED_ALL_LINE,
   GET_TARGET_LINE_CONTENT,
   CREATE_CONTENT,
+  ADD_PHOTO,
 } from './actions.js';
 
 function controlIsAllLineChecked(arr) {
@@ -39,9 +40,9 @@ const initState = {
     comment: '',
     isChecked: false,
     evaluation: null,
-    song: 'Blablablablablabla',
-    photoURL:
-      'https://amtshows.com/wp-content/uploads/2014/01/bands-on-the-rise-silhouette-of-rock-band-on-stage.jpg',
+    song: '',
+    photo: {},
+    photoName: '',
   },
 };
 
@@ -101,6 +102,15 @@ export default function reducer(state = initState, action) {
         initContent: {
           ...state.initContent,
           [action.name]: action.content,
+        },
+      };
+    }
+    case ADD_PHOTO: {
+      return {
+        ...state,
+        initContent: {
+          ...state.initContent,
+          photo: action.content,
         },
       };
     }

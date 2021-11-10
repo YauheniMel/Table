@@ -12,7 +12,6 @@ export default function SelectAction({ onChange, id }) {
       name="usercard"
     >
       <option value=""></option>
-      <option value="update">Update</option>
       <option value="delete">Delete</option>
     </select>
   );

@@ -4,7 +4,7 @@ export default function TableBody({
   content,
   onChange,
   onChangeSelect,
-  onChangeEvaluation
+  onChangeEvaluation,
 }) {
   const tableItems = content.map((item) => {
     return (

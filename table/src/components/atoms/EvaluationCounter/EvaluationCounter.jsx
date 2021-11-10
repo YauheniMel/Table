@@ -5,7 +5,10 @@ export default function EvaluationCounter({ name, evaluation, onChange, id }) {
   // maybe need useState
 
   return (
-    <fieldset onChange={() => onChange(id, event.target.value)} className={styles.wrapper}>
+    <fieldset
+      onChange={() => onChange(id, event.target.value)}
+      className={styles.wrapper}
+    >
       <input
         name={name}
         defaultChecked={evaluation == 1}

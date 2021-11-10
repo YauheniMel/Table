@@ -25,7 +25,7 @@ export default function TableApiContainer({
   function handleChangeEvaluation(id, value) {
     // need control input?
     axios
-      .put(`api/${id}`, {value})
+      .put(`api/${id}`, { value })
       .then((response) => console.log(response))
       .catch((err) => console.error(err))
       .finally(() => setIsUpdate(true));

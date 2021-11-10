@@ -11,14 +11,13 @@ export default function DetailsApiContainer({ content, dispatch, match }) {
       .then((data) => dispatch(getTargetLineContent(...data)))
       .catch((err) => console.error(err));
   }, [match.params.id]);
-
   return (
     <DetailsPageLayout
       band={content.band}
       song={content.songName}
       date={content.datePost}
       comment={content.comment}
-      photoURL={content.photoURL}
+      photoName={content.photoName}
     />
   );
 }
