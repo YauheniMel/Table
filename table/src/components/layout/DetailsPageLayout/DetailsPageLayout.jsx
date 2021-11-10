@@ -11,7 +11,7 @@ export default function DetailsPageLayout({
       <strong>{song}</strong>
       <time>{date}</time>
       <p>{comment}</p>
-      <img src={window.location.origin + '/photo/' + photoName} alt="" />
+      <img src={window.location.origin + '/photo/' + photoName} alt="photo" />
     </div>
   );
 }

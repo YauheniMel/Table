@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 import { getState } from '../../../store/reducers/actions';
 import TablePageLayout from './TablePageLayout';
 
@@ -19,7 +20,7 @@ export default function TableApiContainer({
     // need control select?
     axios
       .delete(`/api/${id}`)
-      .then((response) => console.log(response)) // need install toastify
+      .then((response) => toast(response.data))
       .catch((err) => console.error(err))
       .finally(() => setIsDelete(true));
   }
@@ -28,7 +29,7 @@ export default function TableApiContainer({
     // need control input?
     axios
       .put(`api/${id}`, { value })
-      .then((response) => console.log(response))
+      .then((response) => toast(response.data))
       .catch((err) => console.error(err))
       .finally(() => setIsUpdate(true));
   }
@@ -41,7 +42,7 @@ export default function TableApiContainer({
       .catch((err) => console.error(err))
       .finally(() => {
         setIsDelete(null);
-        setIsUpdate(null);
+        setIsUpdate(null); //spinner
       });
   }, [isDelete, isUpdate]);
 

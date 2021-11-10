@@ -1,5 +1,6 @@
 import axios from 'axios';
 import FormPageLayout from './FormPageLayout';
+import { toast } from 'react-toastify';
 
 export default function FormApiContainer({
   handleChangeInput,
@@ -16,7 +17,7 @@ export default function FormApiContainer({
 
     axios
       .post('/api', formData)
-      .then((response) => console.log(response))
+      .then((response) => toast(response.data))
       .catch((err) => console.error(err));
   }
 
