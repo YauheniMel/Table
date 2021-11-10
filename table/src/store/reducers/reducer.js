@@ -5,7 +5,23 @@ import {
   GET_TARGET_LINE_CONTENT,
   CREATE_CONTENT,
   ADD_PHOTO,
+  SORT_COLUMN,
+  SET_SORT_PARAMETER,
 } from './actions.js';
+
+function sortByParameter(parameter, state) {
+  const arr = [...state.bodyTable];
+
+  arr.sort((a, b) => {
+    if (a[parameter.name.toLowerCase()] > b[parameter.name.toLowerCase()])
+      return 1;
+    if (a[parameter.name.toLowerCase()] < b[parameter.name.toLowerCase()])
+      return -1;
+  });
+  if (parameter.direction === 'decrease') return arr.reverse();
+
+  return arr;
+}
 
 function controlIsAllLineChecked(arr) {
   // maybe bad practice
@@ -43,6 +59,10 @@ const initState = {
     song: '',
     photo: {},
     photoName: '',
+  },
+  sortParameter: {
+    name: '',
+    direction: '',
   },
 };
 
@@ -111,6 +131,21 @@ export default function reducer(state = initState, action) {
         initContent: {
           ...state.initContent,
           photo: action.content,
+        },
+      };
+    }
+    case SORT_COLUMN: {
+      return {
+        ...state,
+        bodyTable: [...sortByParameter(state.sortParameter, state)],
+      };
+    }
+    case SET_SORT_PARAMETER: {
+      return {
+        ...state,
+        sortParameter: {
+          direction: action.direction,
+          name: action.name,
         },
       };
     }

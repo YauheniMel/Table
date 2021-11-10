@@ -4,6 +4,8 @@ export const TOGGLE_CHECKED_LINE = 'TOGGLE_CHECKED_LINE';
 export const TOGGLE_CHECKED_ALL_LINE = 'TOGGLE_CHECKED_ALL_LINE';
 export const CREATE_CONTENT = 'CREATE_CONTENT';
 export const ADD_PHOTO = 'ADD_PHOTO';
+export const SORT_COLUMN = 'SORT_COLUMN';
+export const SET_SORT_PARAMETER = 'SET_SORT_PARAMETER';
 
 export function getState(response) {
   return {
@@ -46,5 +48,20 @@ export function addPhoto(obj) {
   return {
     type: ADD_PHOTO,
     content: obj,
+  };
+}
+
+export function sortColumn(obj) {
+  return {
+    type: SORT_COLUMN,
+    parameter: obj,
+  };
+}
+
+export function setSortParameter(isIncrease, name) {
+  return {
+    type: SET_SORT_PARAMETER,
+    direction: isIncrease ? 'increase' : 'decrease',
+    name: name,
   };
 }

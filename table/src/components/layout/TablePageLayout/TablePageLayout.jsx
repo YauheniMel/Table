@@ -9,6 +9,8 @@ export default function TablePageLayout({
   content,
   onChangeSelect,
   onChangeEvaluation,
+  isIncrease,
+  onChangeOrderLine,
 }) {
   return (
     <table>
@@ -21,12 +23,18 @@ export default function TablePageLayout({
         <col />
         <col width="66" />
       </colgroup>
-      <TableHead onChange={onChangeAllCheckbox} isAllChecked={isAllChecked} />
+      <TableHead
+        activeColumn={content.sortParameter}
+        onChange={onChangeAllCheckbox}
+        isAllChecked={isAllChecked}
+        isIncrease={isIncrease}
+        onChangeOrderLine={onChangeOrderLine}
+      />
       <TableBody
         onChangeEvaluation={onChangeEvaluation}
         onChangeSelect={onChangeSelect}
         onChange={onChangeCheckbox}
-        content={content}
+        content={content.bodyTable}
       />
       <tfoot>
         <tr>
