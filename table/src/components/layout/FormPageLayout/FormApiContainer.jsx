@@ -1,13 +1,21 @@
 import axios from 'axios';
-import { useEffect, useState } from 'react';
 import FormPageLayout from './FormPageLayout';
 
-export default function FormApiContainer({ handleChangeInput, state }) {
+export default function FormApiContainer({
+  handleChangeInput,
+  state,
+  handleChangeInputFile,
+}) {
   function handleSubmitForm(event) {
     event.preventDefault();
 
+    const formData = new FormData();
+    for (let key in state) {
+      formData.append(key, state[key]);
+    }
+
     axios
-      .post('/api', state)
+      .post('/api', formData)
       .then((response) => console.log(response))
       .catch((err) => console.error(err));
   }
@@ -17,6 +25,7 @@ export default function FormApiContainer({ handleChangeInput, state }) {
       onSubmit={handleSubmitForm}
       handleChangeInput={handleChangeInput}
       state={state}
+      handleChangeInputFile={handleChangeInputFile}
     />
   );
 }

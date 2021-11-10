@@ -1,12 +1,19 @@
+import React from 'react';
 import InputFile from '../../atoms/InputFile/InputFile';
 import InputText from '../../atoms/InputText/InputText';
 import TextArea from '../../atoms/TextArea/TextArea';
 import styles from './FormPageLayout.module.scss';
 
-export default function FormPageLayout({ handleChangeInput, onSubmit, state }) {
+export default function FormPageLayout({
+  handleChangeInput,
+  onSubmit,
+  state,
+  handleChangeInputFile,
+}) {
   // need change legend content
+
   return (
-    <form onSubmit={onSubmit}>
+    <form onSubmit={onSubmit} encType="multipart/form-data">
       <fieldset className={styles.wrapper}>
         <legend>Add new item</legend>
         <label>
@@ -15,6 +22,14 @@ export default function FormPageLayout({ handleChangeInput, onSubmit, state }) {
             name="band"
             onChange={handleChangeInput}
             value={state.band}
+          />
+        </label>
+        <label>
+          <InputText
+            title="Song name"
+            name="song"
+            onChange={handleChangeInput}
+            value={state.song}
           />
         </label>
         <label>
@@ -36,10 +51,8 @@ export default function FormPageLayout({ handleChangeInput, onSubmit, state }) {
         <InputFile
           name="photo"
           title="Upload photo"
-        />
-        <InputFile
-          name="song"
-          title="Upload song"
+          accept="image/*"
+          onChange={handleChangeInputFile}
         />
         <label>
           <TextArea

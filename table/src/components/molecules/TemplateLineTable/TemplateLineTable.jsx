@@ -14,7 +14,7 @@ export default function TemplateLineTable({
   id,
   onChange,
   onChangeSelect,
-  onChangeEvaluation
+  onChangeEvaluation,
 }) {
   function onClickLine(e) {
     e.preventDefault();
