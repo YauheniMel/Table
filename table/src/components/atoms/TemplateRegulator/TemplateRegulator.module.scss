@@ -33,3 +33,15 @@
     mask-image: url(../../../assets/icons/down-triangle.svg);
   }
 }
+
+.decrease {
+  &::before {
+    background-color: $gray-2;
+  }
+}
+
+.increase {
+  &::after {
+    background-color: $gray-2;
+  }
+}

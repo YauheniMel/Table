@@ -1,5 +1,8 @@
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
+  setSortParameter,
+  sortColumn,
   toggleCheckedAllLine,
   toggleCheckedLine,
 } from '../../../store/reducers/actions';
@@ -9,6 +12,8 @@ export default function TableContainer() {
   const state = useSelector((state) => state.reducer); // too much data
   const dispatch = useDispatch(); // maybe in wrong place
 
+  const [isIncrease, setIsIncrease] = useState(true);
+
   function handleChangeCheckbox(isChecked, id) {
     dispatch(toggleCheckedLine(isChecked, id));
   }
@@ -17,12 +22,20 @@ export default function TableContainer() {
     dispatch(toggleCheckedAllLine(isAllChecked));
   }
 
+  function handleChangeOrderLine(name, direction) {
+    dispatch(setSortParameter(direction, name));
+    dispatch(sortColumn()); // decrease
+    setIsIncrease(!isIncrease);
+  }
+
   return (
     <TableApiContainer
+      isIncrease={isIncrease}
+      onChangeOrderLine={handleChangeOrderLine}
       onChangeAllCheckbox={handleChangeAllCheckbox}
       isAllChecked={state.isAllChecked}
       onChangeCheckbox={handleChangeCheckbox}
-      content={state.bodyTable}
+      content={state}
       dispatch={dispatch}
     />
   );

@@ -9,6 +9,8 @@ export default function TableApiContainer({
   content,
   dispatch,
   onChangeCheckbox,
+  isIncrease,
+  onChangeOrderLine,
 }) {
   const [isDelete, setIsDelete] = useState(null);
   const [isUpdate, setIsUpdate] = useState(null);
@@ -45,6 +47,8 @@ export default function TableApiContainer({
 
   return (
     <TablePageLayout
+      isIncrease={isIncrease}
+      onChangeOrderLine={onChangeOrderLine}
       onChangeAllCheckbox={onChangeAllCheckbox}
       isAllChecked={isAllChecked}
       onChangeCheckbox={onChangeCheckbox}
