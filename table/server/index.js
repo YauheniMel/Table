@@ -88,7 +88,7 @@ app.post('/api', upload.single('photo'), (req, res) => {
     fs.writeFile(dataJSON, newData, (err) => {
       if (err) throw new Error(err);
 
-      res.send('File written successfully');
+      res.send('Data uploaded successfully');
     });
   });
 });
@@ -110,7 +110,7 @@ app.delete('/api/:lineId', (req, res) => {
     fs.writeFile(dataJSON, newData, (err) => {
       if (err) throw new Error(err);
 
-      res.send('Deleted successfully');
+      res.send('Data deleted successfully');
     });
   });
 });
@@ -141,7 +141,7 @@ app.put('/api/:lineId', (req, res) => {
     fs.writeFile(dataJSON, newData, (err) => {
       if (err) throw new Error(err);
 
-      res.send('Updated successfully');
+      res.send('Evaluation done');
     });
   });
 });

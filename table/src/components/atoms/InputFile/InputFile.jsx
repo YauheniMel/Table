@@ -13,7 +13,7 @@ export default function InputFile({ title, name, accept, onChange }) {
         required
       />
       <span className={styles.icon}>
-        <img src={iconDownloadUrl} alt="" />
+        <img src={iconDownloadUrl} alt="download" />
       </span>
       <span className={styles.title}>{title}</span>
     </label>
