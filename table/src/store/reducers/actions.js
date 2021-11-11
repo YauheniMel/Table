@@ -2,7 +2,10 @@ export const GET_STATE = 'GET_STATE';
 export const GET_TARGET_LINE_CONTENT = 'GET_TARGET_LINE_CONTENT';
 export const TOGGLE_CHECKED_LINE = 'TOGGLE_CHECKED_LINE';
 export const TOGGLE_CHECKED_ALL_LINE = 'TOGGLE_CHECKED_ALL_LINE';
-export const SET_EVALUATION = 'SET_EVALUATION';
+export const CREATE_CONTENT = 'CREATE_CONTENT';
+export const ADD_PHOTO = 'ADD_PHOTO';
+export const SORT_COLUMN = 'SORT_COLUMN';
+export const SET_SORT_PARAMETER = 'SET_SORT_PARAMETER';
 
 export function getState(response) {
   return {
@@ -33,10 +36,32 @@ export function toggleCheckedAllLine(isAllChecked) {
   };
 }
 
-export function setEvaluation(name, value) {
+export function createContent(content, name) {
   return {
-    type: SET_EVALUATION,
+    type: CREATE_CONTENT,
+    content: content,
     name: name,
-    value: value,
+  };
+}
+
+export function addPhoto(obj) {
+  return {
+    type: ADD_PHOTO,
+    content: obj,
+  };
+}
+
+export function sortColumn(obj) {
+  return {
+    type: SORT_COLUMN,
+    parameter: obj,
+  };
+}
+
+export function setSortParameter(isIncrease, name) {
+  return {
+    type: SET_SORT_PARAMETER,
+    direction: isIncrease ? 'increase' : 'decrease',
+    name: name,
   };
 }

@@ -18,3 +18,18 @@ table thead {
 tfoot td {
   padding: 0.3em;
 }
+
+.Toastify__toast {
+  font-size: 20px;
+  border: 1px solid $gray-2;
+  border-radius: 4px;
+  padding-top: 0.5px;
+}
+
+.Toastify__close-button > svg {
+  margin-top: 6px;
+}
+
+.Toastify__progress-bar {
+  background: $primary !important;
+}

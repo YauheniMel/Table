@@ -1,4 +1,27 @@
-import { GET_STATE, TOGGLE_CHECKED_LINE, TOGGLE_CHECKED_ALL_LINE, SET_EVALUATION, GET_TARGET_LINE_CONTENT } from './actions.js';
+import {
+  GET_STATE,
+  TOGGLE_CHECKED_LINE,
+  TOGGLE_CHECKED_ALL_LINE,
+  GET_TARGET_LINE_CONTENT,
+  CREATE_CONTENT,
+  ADD_PHOTO,
+  SORT_COLUMN,
+  SET_SORT_PARAMETER,
+} from './actions.js';
+
+function sortByParameter(parameter, state) {
+  const arr = [...state.bodyTable];
+
+  arr.sort((a, b) => {
+    if (a[parameter.name.toLowerCase()] > b[parameter.name.toLowerCase()])
+      return 1;
+    if (a[parameter.name.toLowerCase()] < b[parameter.name.toLowerCase()])
+      return -1;
+  });
+  if (parameter.direction === 'decrease') return arr.reverse();
+
+  return arr;
+}
 
 function controlIsAllLineChecked(arr) {
   // maybe bad practice
@@ -6,10 +29,41 @@ function controlIsAllLineChecked(arr) {
   return countNotCheckedLine;
 }
 
+function getDate() {
+  const date = new Date();
+  let day, month, year;
+
+  date.getDate() < 10 ? (day = `0${date.getDate()}`) : (day = date.getDate());
+
+  month = date.getMonth() + 1;
+
+  month < 10 ? (month = `0${month}`) : month;
+
+  year = date.getFullYear();
+
+  return `${day}/${month}/${year}`;
+}
+
 const initState = {
   bodyTable: [],
   targetLine: {},
   isAllChecked: false,
+  initContent: {
+    date: getDate(),
+    band: '',
+    country: '',
+    city: '',
+    comment: '',
+    isChecked: false,
+    evaluation: null,
+    song: '',
+    photo: {},
+    photoName: '',
+  },
+  sortParameter: {
+    name: '',
+    direction: '',
+  },
 };
 
 export default function reducer(state = initState, action) {
@@ -17,7 +71,7 @@ export default function reducer(state = initState, action) {
     case GET_STATE:
       return {
         ...state,
-        bodyTable: [...action.bodyTable], // location not cloned
+        bodyTable: [...action.bodyTable],
         targetLine: { ...action.targetLine },
         isAllChecked: action.isAllChecked,
       };
@@ -62,19 +116,37 @@ export default function reducer(state = initState, action) {
 
       return stateCopy;
     }
-    case SET_EVALUATION: {
+    case CREATE_CONTENT: {
       return {
         ...state,
-        bodyTable: [
-          ...state.bodyTable.map((item) => {
-            if (`evaluation${item.id}` === action.name) {
-              item.evaluation = action.value;
-              return item;
-            } else {
-              return item;
-            }
-          }),
-        ],
+        initContent: {
+          ...state.initContent,
+          [action.name]: action.content,
+        },
+      };
+    }
+    case ADD_PHOTO: {
+      return {
+        ...state,
+        initContent: {
+          ...state.initContent,
+          photo: action.content,
+        },
+      };
+    }
+    case SORT_COLUMN: {
+      return {
+        ...state,
+        bodyTable: [...sortByParameter(state.sortParameter, state)],
+      };
+    }
+    case SET_SORT_PARAMETER: {
+      return {
+        ...state,
+        sortParameter: {
+          direction: action.direction,
+          name: action.name,
+        },
       };
     }
     default:

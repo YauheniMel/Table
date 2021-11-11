@@ -11,6 +11,10 @@ select {
   color: $black;
   width: 100%;
 
+  & > :first-child {
+    display: none;
+  }
+
   option {
     background-color: $white;
     color: $primary;

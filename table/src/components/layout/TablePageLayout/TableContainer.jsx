@@ -1,10 +1,18 @@
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setEvaluation, toggleCheckedAllLine, toggleCheckedLine } from '../../../store/reducers/actions';
+import {
+  setSortParameter,
+  sortColumn,
+  toggleCheckedAllLine,
+  toggleCheckedLine,
+} from '../../../store/reducers/actions';
 import TableApiContainer from './TableApiContainer';
 
 export default function TableContainer() {
   const state = useSelector((state) => state.reducer); // too much data
   const dispatch = useDispatch(); // maybe in wrong place
+
+  const [isIncrease, setIsIncrease] = useState(true);
 
   function handleChangeCheckbox(isChecked, id) {
     dispatch(toggleCheckedLine(isChecked, id));
@@ -14,18 +22,23 @@ export default function TableContainer() {
     dispatch(toggleCheckedAllLine(isAllChecked));
   }
 
-  function handleChangeEvaluation(name) {
-    dispatch(setEvaluation(name, Number(event.target.value)));
+  function handleChangeOrderLine(name, direction) {
+    dispatch(setSortParameter(direction, name));
+    dispatch(sortColumn()); // decrease
+    setIsIncrease(!isIncrease);
   }
 
   return (
     <TableApiContainer
+      isIncrease={isIncrease}
+      onChangeOrderLine={handleChangeOrderLine}
       onChangeAllCheckbox={handleChangeAllCheckbox}
       isAllChecked={state.isAllChecked}
-      setEvaluation={handleChangeEvaluation}
       onChangeCheckbox={handleChangeCheckbox}
-      content={state.bodyTable}
+      content={state}
       dispatch={dispatch}
     />
   );
 }
+
+// maybe need use withRouter
