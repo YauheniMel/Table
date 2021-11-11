@@ -13,12 +13,12 @@ export default function TemplateLineTable({
   country,
   id,
   onChange,
-  onChangeSelect,
+  onDeleteLine,
   onChangeEvaluation,
 }) {
   function onClickLine(e) {
     e.preventDefault();
-    window.location.href = `/details/${id}`;
+    window.location.href = `/details/id${id}`;
   }
 
   function onStop(e) {
@@ -45,7 +45,7 @@ export default function TemplateLineTable({
       </td>
       <td>{`${city},${country}`}</td>
       <td onClick={onStop}>
-        <SelectAction id={id} onChange={onChangeSelect} />
+        <SelectAction id={id} onChange={onDeleteLine} />
       </td>
     </tr>
   );

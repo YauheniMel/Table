@@ -3,7 +3,7 @@ import TemplateLineTable from '../../molecules/TemplateLineTable/TemplateLineTab
 export default function TableBody({
   content,
   onChange,
-  onChangeSelect,
+  onDeleteLine,
   onChangeEvaluation,
 }) {
   const tableItems = content.map((item) => {
@@ -19,7 +19,7 @@ export default function TableBody({
         country={item.country}
         city={item.city}
         onChange={onChange}
-        onChangeSelect={onChangeSelect}
+        onDeleteLine={onDeleteLine}
         onChangeEvaluation={onChangeEvaluation}
       />
     );

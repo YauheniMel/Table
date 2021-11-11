@@ -11,6 +11,7 @@ export function getState(response) {
   return {
     type: GET_STATE,
     bodyTable: response.bodyTable,
+    totalPage: response.totalPage,
   };
 }
 

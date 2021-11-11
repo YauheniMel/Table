@@ -33,11 +33,26 @@ const upload = multer({ storage: storageConfig });
 
 //Body table
 // GET
-app.get('/api', (req, res) => {
+app.get('/api/:pageNumber', (req, res) => {
+  const { pageNumber } = req.params;
+
   fs.readFile(dataJSON, (err, data) => {
     if (err) throw new Error(err);
+    // pagination
+    const obj = JSON.parse(data);
+    const pageContent = obj.bodyTable.slice(
+      (pageNumber - 1) * 5,
+      pageNumber * 5
+    );
 
-    res.send(data);
+    const totalPage = Math.ceil(obj.bodyTable.length / 5);
+    const resData = {
+      ...data,
+      bodyTable: [...pageContent],
+    };
+    resData.totalPage = totalPage;
+
+    res.send(resData);
   });
 });
 
@@ -97,30 +112,37 @@ app.post('/api', upload.single('photo'), (req, res) => {
 app.delete('/api/:lineId', (req, res) => {
   const { lineId } = req.params;
 
-  fs.readFile(dataJSON, (err, data) => {
-    if (err) throw new Error(err);
-
-    let prevData = JSON.parse(data);
-
-    const newData = JSON.stringify({
-      ...prevData,
-      bodyTable: [...prevData.bodyTable.filter((item) => {
-        if(item.id == lineId) {
-          fs.unlink(`${photoFolder}/${item.photoName}`, (err) => {
-            if (err) throw new Error(err);
-          });
-        } else {
-          return item
-        }
-      })],
-    });
-
-    fs.writeFile(dataJSON, newData, (err) => {
+  if (lineId.match(/,/)) {
+    const arrId = lineId.match(/[0-9]+/gim);
+    console.log('xxxxxxxxxx'); // if multi
+  } else {
+    fs.readFile(dataJSON, (err, data) => {
       if (err) throw new Error(err);
 
-      res.send('Data deleted successfully');
+      let prevData = JSON.parse(data);
+
+      const newData = JSON.stringify({
+        ...prevData,
+        bodyTable: [
+          ...prevData.bodyTable.filter((item) => {
+            if (item.id == lineId) {
+              fs.unlink(`${photoFolder}/${item.photoName}`, (err) => {
+                if (err) throw new Error(err);
+              });
+            } else {
+              return item;
+            }
+          }),
+        ],
+      });
+
+      fs.writeFile(dataJSON, newData, (err) => {
+        if (err) throw new Error(err);
+
+        res.send('Data deleted successfully');
+      });
     });
-  });
+  }
 });
 
 //PUT
