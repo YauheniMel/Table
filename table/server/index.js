@@ -14,6 +14,11 @@ const dataFolder = path.resolve(__dirname, './public/data');
 const photoFolder = path.resolve(__dirname, './public/photo');
 const dataJSON = path.resolve(dataFolder, 'data.json');
 
+
+if (!fs.existsSync(photoFolder)) {
+  fs.mkdirSync(photoFolder, { recursive: true });
+}
+
 let imageName;
 
 const storageConfig = multer.diskStorage({
@@ -30,6 +35,8 @@ const storageConfig = multer.diskStorage({
 });
 
 const upload = multer({ storage: storageConfig });
+
+
 
 //Body table
 // GET
