@@ -16,6 +16,7 @@ export default function InputFile({ title, name, accept, onChange }) {
         <img src={iconDownloadUrl} alt="download" />
       </span>
       <span className={styles.title}>{title}</span>
+      <span className={styles.title_ready}>File is ready</span>
     </label>
   );
 }

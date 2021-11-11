@@ -1,36 +1,38 @@
+import { NavLink } from 'react-router-dom';
 import styles from './Pagination.module.scss';
 
-export default function Pagination() {
+export default function Pagination({ currentPage, setCurrentPage, totalPage }) {
+  function handleClickPageDown() {
+    currentPage == 1 ? false : setCurrentPage(currentPage - 1);
+  }
+  // maybe wrong place
+
+  function handleClickPageUp() {
+    currentPage == totalPage ? false : setCurrentPage(currentPage + 1);
+  }
+
   return (
     <div className={styles.wrapper}>
       <p>
         Total
-        <strong>9</strong>
+        <strong>{totalPage}</strong>
       </p>
       <ul>
         <li className={styles.btn_prev}>
-          <a href=""></a>
+          <NavLink
+            onClick={handleClickPageDown}
+            to={`/table/page${currentPage}`}
+          ></NavLink>
         </li>
-        <li>
-          <a href="">1</a>
-        </li>
-        <li>
-          <a href="">2</a>
-        </li>
-        <li>
-          <a href="">...</a>
-        </li>
-        <li>
-          <a href="">8</a>
-        </li>
-        <li>
-          <a href="">9</a>
-        </li>
+        <li>{currentPage}</li>
         <li className={styles.btn_next}>
-          <a href=""></a>
+          <NavLink
+            onClick={handleClickPageUp}
+            to={`/table/page${currentPage}`}
+          ></NavLink>
         </li>
       </ul>
-      <form action="">
+      <form>
         <label>
           <button className={styles.button} type="submit">
             Jump to page:

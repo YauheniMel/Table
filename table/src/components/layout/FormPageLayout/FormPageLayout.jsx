@@ -1,6 +1,7 @@
 import React from 'react';
 import InputFile from '../../atoms/InputFile/InputFile';
 import InputText from '../../atoms/InputText/InputText';
+import Loader from '../../atoms/Loader/Loader';
 import TextArea from '../../atoms/TextArea/TextArea';
 import styles from './FormPageLayout.module.scss';
 
@@ -9,11 +10,13 @@ export default function FormPageLayout({
   onSubmit,
   state,
   handleChangeInputFile,
+  isLoading,
 }) {
   // need change legend content
 
   return (
     <form onSubmit={onSubmit} encType="multipart/form-data">
+      {isLoading && <Loader />}
       <fieldset className={styles.wrapper}>
         <legend>Add new item</legend>
         <label>

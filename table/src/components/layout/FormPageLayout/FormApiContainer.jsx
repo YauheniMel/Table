@@ -1,13 +1,18 @@
 import axios from 'axios';
 import FormPageLayout from './FormPageLayout';
 import { toast } from 'react-toastify';
+import { useState } from 'react';
 
 export default function FormApiContainer({
   handleChangeInput,
   state,
   handleChangeInputFile,
 }) {
+  const [isLoading, setIsLoading] = useState();
+
   function handleSubmitForm(event) {
+    setIsLoading(true);
+
     event.preventDefault();
 
     const formData = new FormData();
@@ -17,6 +22,7 @@ export default function FormApiContainer({
 
     axios
       .post('/api', formData)
+      .finally(() => setIsLoading(false))
       .then((response) => toast(response.data))
       .catch((err) => console.error(err));
   }
@@ -27,6 +33,7 @@ export default function FormApiContainer({
       handleChangeInput={handleChangeInput}
       state={state}
       handleChangeInputFile={handleChangeInputFile}
+      isLoading={isLoading}
     />
   );
 }

@@ -9,7 +9,8 @@ import {
 import TableApiContainer from './TableApiContainer';
 
 export default function TableContainer() {
-  const state = useSelector((state) => state.reducer); // too much data
+  const state = useSelector((state) => state.reducer);
+
   const dispatch = useDispatch(); // maybe in wrong place
 
   const [isIncrease, setIsIncrease] = useState(true);
@@ -40,5 +41,3 @@ export default function TableContainer() {
     />
   );
 }
-
-// maybe need use withRouter

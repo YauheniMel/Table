@@ -64,6 +64,7 @@ const initState = {
     name: '',
     direction: '',
   },
+  totalPage: 0,
 };
 
 export default function reducer(state = initState, action) {
@@ -72,8 +73,7 @@ export default function reducer(state = initState, action) {
       return {
         ...state,
         bodyTable: [...action.bodyTable],
-        targetLine: { ...action.targetLine },
-        isAllChecked: action.isAllChecked,
+        totalPage: action.totalPage,
       };
     case GET_TARGET_LINE_CONTENT:
       return {
