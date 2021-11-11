@@ -104,7 +104,15 @@ app.delete('/api/:lineId', (req, res) => {
 
     const newData = JSON.stringify({
       ...prevData,
-      bodyTable: [...prevData.bodyTable.filter((item) => item.id != lineId)],
+      bodyTable: [...prevData.bodyTable.filter((item) => {
+        if(item.id == lineId) {
+          fs.unlink(`${photoFolder}/${item.photoName}`, (err) => {
+            if (err) throw new Error(err);
+          });
+        } else {
+          return item
+        }
+      })],
     });
 
     fs.writeFile(dataJSON, newData, (err) => {
