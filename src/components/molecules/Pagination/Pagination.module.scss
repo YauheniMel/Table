@@ -17,6 +17,10 @@ ul {
   display: flex;
   column-gap: 4px;
 
+  &:hover {
+    background-color: $gray-2;
+  }
+
   .btn_prev a,
   .btn_next a {
     display: inline-block;
@@ -25,10 +29,6 @@ ul {
     mask-repeat: no-repeat;
     mask-size: 12px;
     background-color: $primary;
-
-    &:hover {
-      background-color: $gray-2;
-    }
   }
 
   .btn_prev a {

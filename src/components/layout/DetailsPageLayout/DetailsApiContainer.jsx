@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 import { getTargetLineContent } from '../../../store/reducers/actions';
 import DetailsPageLayout from './DetailsPageLayout';
 
@@ -14,7 +15,7 @@ export default function DetailsApiContainer({ content, dispatch, match }) {
       .finally(() => setIsLoading(false))
       .then((response) => response.data)
       .then((data) => dispatch(getTargetLineContent(...data)))
-      .catch((err) => console.error(err));
+      .catch((err) => toast(err));
   }, [match.params.id]);
   return (
     <DetailsPageLayout
