@@ -18,19 +18,19 @@ const dataJSON = path.resolve(dataFolder, 'data.json');
 
 if (!fs.existsSync(publicFolder)) {
   const initData = JSON.stringify({
-      bodyTable:[],
-      isAllChecked:false
-  })
+    bodyTable: [],
+    isAllChecked: false,
+  });
 
   fs.mkdirSync(photoFolder, { recursive: true });
   fs.mkdirSync(dataFolder, { recursive: true });
   fs.writeFile(dataJSON, initData, 'utf8', (err) => {
     if (err) {
-        console.error(err);
-        return;
+      console.error(err);
+      return;
     }
 
-    console.log("Public folder has been created");
+    console.log('Public folder has been created');
   });
 }
 

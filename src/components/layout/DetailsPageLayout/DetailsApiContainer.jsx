@@ -20,8 +20,8 @@ export default function DetailsApiContainer({ content, dispatch, match }) {
   return (
     <DetailsPageLayout
       band={content.band}
-      song={content.songName}
-      date={content.datePost}
+      song={content.song}
+      date={content.date}
       comment={content.comment}
       photoName={content.photoName}
       isLoading={isLoading}

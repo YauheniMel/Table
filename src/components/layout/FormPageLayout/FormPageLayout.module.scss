@@ -3,6 +3,7 @@
 
 .wrapper {
   max-width: 40%;
+  min-width: 400px;
   padding: 30px;
 
   input:not([type="file"]) {

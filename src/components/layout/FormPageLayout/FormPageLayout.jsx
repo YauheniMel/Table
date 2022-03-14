@@ -15,7 +15,7 @@ export default function FormPageLayout({
   // need change legend content
 
   return (
-    <form onSubmit={onSubmit} encType="multipart/form-data">
+    <form onSubmit={onSubmit} autoComplete="off" encType="multipart/form-data">
       {isLoading && <Loader />}
       <fieldset className={styles.wrapper}>
         <legend>Add new item</legend>
