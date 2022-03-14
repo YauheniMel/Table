@@ -24,7 +24,7 @@ export default function FormApiContainer({
       .post('/api', formData)
       .finally(() => setIsLoading(false))
       .then((response) => toast(response.data))
-      .catch((err) => console.error(err));
+      .catch((err) => toast(err));
   }
 
   return (

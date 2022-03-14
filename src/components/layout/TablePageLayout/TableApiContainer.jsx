@@ -29,7 +29,7 @@ export default function TableApiContainer({
         setIsDelete(true);
       })
       .then((response) => toast(response.data))
-      .catch((err) => console.error(err));
+      .catch((err) => toast(err));
   }
 
   function handleClickDeleteCheckedLine() {
@@ -48,7 +48,7 @@ export default function TableApiContainer({
         setIsDelete(true);
       })
       .then((response) => toast(response.data))
-      .catch((err) => console.error(err));
+      .catch((err) => toast(err));
   }
 
   function handleChangeEvaluation(id, value) {
@@ -61,7 +61,7 @@ export default function TableApiContainer({
         setIsUpdate(true);
       })
       .then((response) => toast(response.data))
-      .catch((err) => console.error(err));
+      .catch((err) => toast(err));
   }
 
   useEffect(() => {
@@ -76,7 +76,7 @@ export default function TableApiContainer({
       })
       .then((response) => response.data)
       .then((data) => dispatch(getState(data)))
-      .catch((err) => console.error(err));
+      .catch((err) => toast(err));
   }, [isDelete, isUpdate, currentPage]);
 
   return (

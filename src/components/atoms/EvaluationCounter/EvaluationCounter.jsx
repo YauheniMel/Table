@@ -6,7 +6,7 @@ export default function EvaluationCounter({ name, evaluation, onChange, id }) {
 
   return (
     <fieldset
-      onChange={() => onChange(id, event.target.value)}
+      onChange={(event) => onChange(id, event.target.value)}
       className={styles.wrapper}
     >
       <input
