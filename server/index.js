@@ -10,12 +10,28 @@ app.use(express.static(path.join(__dirname, './public')));
 
 const port = process.env.PORT || 5000;
 
+const publicFolder = path.resolve(__dirname, './public');
+
 const dataFolder = path.resolve(__dirname, './public/data');
 const photoFolder = path.resolve(__dirname, './public/photo');
 const dataJSON = path.resolve(dataFolder, 'data.json');
 
-if (!fs.existsSync(photoFolder)) {
+if (!fs.existsSync(publicFolder)) {
+  const initData = JSON.stringify({
+      bodyTable:[],
+      isAllChecked:false
+  })
+
   fs.mkdirSync(photoFolder, { recursive: true });
+  fs.mkdirSync(dataFolder, { recursive: true });
+  fs.writeFile(dataJSON, initData, 'utf8', (err) => {
+    if (err) {
+        console.error(err);
+        return;
+    }
+
+    console.log("Public folder has been created");
+  });
 }
 
 let imageName;
