@@ -1,3 +1,4 @@
+import DelButton from '../../atoms/DelButton/DelButton';
 import Loader from '../../atoms/Loader/Loader';
 import Pagination from '../../molecules/Pagination/Pagination';
 import TableHead from '../../molecules/TableHead/TableHead';
@@ -19,7 +20,9 @@ export default function TablePageLayout({
 }) {
   return (
     <>
-      <button onClick={onClickDeleteCheckedLine}>Delete all</button>
+      <DelButton onClick={onClickDeleteCheckedLine}>
+        Delete
+      </DelButton>
       <table>
         {isLoading && <Loader />}
         <colgroup>
