@@ -9,4 +9,16 @@
   padding: 0.2rem 1rem;
   font-size: $font-size-desktop;
   background-color: transparent;
+  animation-name: appear;
+  animation-duration: 300ms;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
