@@ -21,8 +21,8 @@ export default function TablePageLayout({
   return (
     <>
       <DelButton onClick={onClickDeleteCheckedLine}>Delete</DelButton>
+      {isLoading && <Loader />}
       <table>
-        {isLoading && <Loader />}
         <colgroup>
           <col width="30" />
           <col />

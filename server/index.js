@@ -134,7 +134,36 @@ app.delete('/api/:lineId', (req, res) => {
 
   if (lineId.match(/,/)) {
     const arrId = lineId.match(/[0-9]+/gim);
-    console.log('xxxxxxxxxx'); // if multi
+
+    fs.readFile(dataJSON, (err, data) => {
+      if (err) throw new Error(err);
+
+      let prevData = JSON.parse(data);
+
+      arrId.forEach(id => {
+        prevData.bodyTable.forEach((item, idx) => {
+          if (item.id == id) {
+            fs.unlink(`${photoFolder}/${item.photoName}`, (err) => {
+                if (err) throw new Error(err);
+            });
+
+            prevData.bodyTable.splice(idx, 1);
+          }
+        });
+      })
+
+
+      const newData = JSON.stringify({
+        ...prevData,
+        bodyTable: prevData.bodyTable
+      });
+
+      fs.writeFile(dataJSON, newData, (err) => {
+        if (err) throw new Error(err);
+
+        res.send('Data deleted successfully');
+      });
+    });
   } else {
     fs.readFile(dataJSON, (err, data) => {
       if (err) throw new Error(err);
