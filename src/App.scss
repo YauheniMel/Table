@@ -3,6 +3,7 @@
 table {
   table-layout: fixed;
   width: 100%;
+  min-width: 650px;
   border: 1px solid $gray-2;
   border-collapse: collapse;
 }
@@ -11,16 +12,12 @@ tbody > :nth-child(even) {
   background-color: $gray-1;
 }
 
-table thead {
-  width: 1400px;
-}
-
 tfoot td {
   padding: 0.3em;
 }
 
 .Toastify__toast {
-  font-size: 20px;
+  font-size: 1.2rem;
   border: 1px solid $gray-2;
   border-radius: 4px;
   padding-top: 0.5px;

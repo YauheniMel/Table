@@ -20,9 +20,11 @@ export default function TablePageLayout({
 }) {
   return (
     <>
-      <DelButton onClick={onClickDeleteCheckedLine}>Delete</DelButton>
+      {content.bodyTable.filter((item) => item.isChecked).length >= 2 ? (
+        <DelButton onClick={onClickDeleteCheckedLine} />
+      ) : null}
+      {isLoading && <Loader />}
       <table>
-        {isLoading && <Loader />}
         <colgroup>
           <col width="30" />
           <col />

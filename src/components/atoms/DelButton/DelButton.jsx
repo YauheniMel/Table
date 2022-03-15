@@ -1,9 +1,9 @@
 import styles from './DelButton.module.scss';
 
-export default function DelButton({ children, onClick }) {
+export default function DelButton({ onClick }) {
   return (
     <button className={styles.button} onClick={onClick}>
-      {children}
+      Delete
     </button>
   );
 }
