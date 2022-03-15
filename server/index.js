@@ -140,22 +140,21 @@ app.delete('/api/:lineId', (req, res) => {
 
       let prevData = JSON.parse(data);
 
-      arrId.forEach(id => {
+      arrId.forEach((id) => {
         prevData.bodyTable.forEach((item, idx) => {
           if (item.id == id) {
             fs.unlink(`${photoFolder}/${item.photoName}`, (err) => {
-                if (err) throw new Error(err);
+              if (err) throw new Error(err);
             });
 
             prevData.bodyTable.splice(idx, 1);
           }
         });
-      })
-
+      });
 
       const newData = JSON.stringify({
         ...prevData,
-        bodyTable: prevData.bodyTable
+        bodyTable: prevData.bodyTable,
       });
 
       fs.writeFile(dataJSON, newData, (err) => {
