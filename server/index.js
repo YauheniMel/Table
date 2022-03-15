@@ -10,12 +10,28 @@ app.use(express.static(path.join(__dirname, './public')));
 
 const port = process.env.PORT || 5000;
 
+const publicFolder = path.resolve(__dirname, './public');
+
 const dataFolder = path.resolve(__dirname, './public/data');
 const photoFolder = path.resolve(__dirname, './public/photo');
 const dataJSON = path.resolve(dataFolder, 'data.json');
 
-if (!fs.existsSync(photoFolder)) {
+if (!fs.existsSync(publicFolder)) {
+  const initData = JSON.stringify({
+    bodyTable: [],
+    isAllChecked: false,
+  });
+
   fs.mkdirSync(photoFolder, { recursive: true });
+  fs.mkdirSync(dataFolder, { recursive: true });
+  fs.writeFile(dataJSON, initData, 'utf8', (err) => {
+    if (err) {
+      console.error(err);
+      return;
+    }
+
+    console.log('Public folder has been created');
+  });
 }
 
 let imageName;
@@ -118,7 +134,35 @@ app.delete('/api/:lineId', (req, res) => {
 
   if (lineId.match(/,/)) {
     const arrId = lineId.match(/[0-9]+/gim);
-    console.log('xxxxxxxxxx'); // if multi
+
+    fs.readFile(dataJSON, (err, data) => {
+      if (err) throw new Error(err);
+
+      let prevData = JSON.parse(data);
+
+      arrId.forEach((id) => {
+        prevData.bodyTable.forEach((item, idx) => {
+          if (item.id == id) {
+            fs.unlink(`${photoFolder}/${item.photoName}`, (err) => {
+              if (err) throw new Error(err);
+            });
+
+            prevData.bodyTable.splice(idx, 1);
+          }
+        });
+      });
+
+      const newData = JSON.stringify({
+        ...prevData,
+        bodyTable: prevData.bodyTable,
+      });
+
+      fs.writeFile(dataJSON, newData, (err) => {
+        if (err) throw new Error(err);
+
+        res.send('Data deleted successfully');
+      });
+    });
   } else {
     fs.readFile(dataJSON, (err, data) => {
       if (err) throw new Error(err);
