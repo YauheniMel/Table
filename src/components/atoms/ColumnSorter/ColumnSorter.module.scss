@@ -1,0 +1,44 @@
+@import '../../../style/colors';
+@import '../../../style/typography';
+
+.button {
+  position: relative;
+  width: 100%;
+  padding: 10px;
+  font-size: $font-size-desktop;
+  font-weight: bold;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    right: 4px;
+    height: 12px;
+    width: 12px;
+    mask-size: 12px;
+    background-color: $white;
+  }
+
+  &::before {
+    top: 8px;
+    mask-image: url(../../../assets/icons/down-triangle.svg);
+    transform: rotate(180deg);
+  }
+
+  &::after {
+    bottom: 8px;
+    mask-image: url(../../../assets/icons/down-triangle.svg);
+  }
+}
+
+.decrease {
+  &::after {
+    background-color: $primary;
+  }
+}
+
+.increase {
+  &::before {
+    background-color: $primary;
+  }
+}

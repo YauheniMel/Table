@@ -2,13 +2,29 @@
 @import '../../../style/typography';
 
 .wrapper {
-  border: 1px solid $gray-2;
-  background-color: $white;
-
   th {
     font-size: $font-size-desktop;
     font-weight: bold;
-    border-left: 1px solid $gray-2;
-    padding: 0.3em;
+  }
+
+  th:first-child {
+    padding: 0.2em 1em;
+
+    span::before {
+      border: 1px solid $white;
+    }
+
+    input {
+      display: none;
+
+      &:checked + span::after {
+        visibility: visible;
+      }
+
+      &:checked + span::before,
+      &:hover + span::before {
+        border-color: $primary;
+      }
+    }
   }
 }

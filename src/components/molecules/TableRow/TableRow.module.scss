@@ -1,0 +1,21 @@
+@import '../../../style/colors';
+
+.wrapper {
+  th {
+    position: relative;
+    padding: 0.2em;
+  }
+
+  td {
+    padding: 0.2em 1em;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    border-right: 1px solid $gray-2;
+  }
+
+  td:nth-child(2):hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}

@@ -1,17 +1,10 @@
-import React from 'react';
-
-export default function InputText({ title, name, value, onChange }) {
-  const ref = React.createRef();
-
-  return (
-    <input
-      ref={ref}
-      type="text"
-      placeholder={title}
-      name={name}
-      value={value}
-      onChange={() => onChange(ref, name)}
-      required
-    />
-  );
-}
+export const InputText = ({ title, name, value, onChange, ...rest }) => (
+  <input
+    type="text"
+    placeholder={title}
+    name={name}
+    value={value}
+    onChange={onChange}
+    {...rest}
+  />
+);

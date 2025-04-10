@@ -1,11 +1,17 @@
 @import './style/colors';
 
-table {
-  table-layout: fixed;
-  width: 100%;
-  min-width: 650px;
-  border: 1px solid $gray-2;
-  border-collapse: collapse;
+.container {
+  position: relative;
+  display: flex;
+  padding-bottom: 5px;
+  flex-direction: column;
+  max-width: 1400px;
+  height: 100vh;
+  margin: auto;
+
+  & > div {
+    flex: 1;
+  }
 }
 
 tbody > :nth-child(even) {
@@ -13,7 +19,7 @@ tbody > :nth-child(even) {
 }
 
 tfoot td {
-  padding: 0.3em;
+  padding: 0.5em;
 }
 
 .Toastify__toast {
