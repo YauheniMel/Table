@@ -1,0 +1,28 @@
+@import '../../../style/colors';
+@import '../../../style/typography';
+
+.wrapper {
+  max-width: 40%;
+  min-width: 400px;
+  padding: 30px;
+
+  input:not([type="file"]) {
+    margin: 10px 0;
+    height: 40px;
+    width: 100%;
+  }
+
+  button {
+    color: $white;
+    font-size: $font-size-desktop;
+    width: 100px;
+    padding: 10px 0;
+    background-color: $primary;
+    border-radius: 4px;
+
+    &:hover {
+      background-color: $gray-2;
+      color: $black;
+    }
+  }
+}

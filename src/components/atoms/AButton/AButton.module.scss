@@ -1,0 +1,22 @@
+@import '../../../style/colors';
+@import '../../../style/typography';
+
+.button {
+  border: 1px solid $primary;
+  color: $primary;
+  border-radius: 4px;
+  padding: 0.3rem 0.7rem;
+  font-size: $font-size-desktop;
+  animation-name: appear;
+  animation-duration: 300ms;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

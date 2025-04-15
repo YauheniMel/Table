@@ -1,28 +1,24 @@
-import TemplateLineTable from '../../molecules/TemplateLineTable/TemplateLineTable';
+import { TableRow } from '../../molecules/TableRow/TableRow';
+import { useSelector } from 'react-redux';
+import { getSongsSelector } from '../../../store/selectors';
 
-export default function TableBody({
-  content,
-  onChange,
-  onDeleteLine,
-  onChangeEvaluation,
-}) {
-  const tableItems = content.map((item) => {
+export const TableBody = ({ selectRow, selectedRows }) => {
+  const songs = useSelector(getSongsSelector);
+
+  const tableItems = songs.map((song) => {
     return (
-      <TemplateLineTable
-        key={item.id}
-        id={item.id}
-        isChecked={item.isChecked}
-        band={item.band}
-        song={item.song}
-        datePost={item.date}
-        evaluation={item.evaluation}
-        country={item.country}
-        city={item.city}
-        onChange={onChange}
-        onDeleteLine={onDeleteLine}
-        onChangeEvaluation={onChangeEvaluation}
+      <TableRow
+        key={song.id}
+        id={song.id}
+        isChecked={selectedRows.includes(song.id)}
+        name={song.name}
+        rating={song.rating}
+        location={song.location}
+        band={song.band}
+        selectRow={selectRow}
       />
     );
   });
+
   return <tbody>{tableItems}</tbody>;
-}
+};

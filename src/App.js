@@ -1,21 +1,37 @@
-import { Route } from 'react-router-dom';
-import TabToggle from './components/atoms/TabToggle/TabToggle';
-import DetailsContainer from './components/layout/DetailsPageLayout/DetailsContainer';
-import TableContainer from './components/layout/TablePageLayout/TableContainer';
-import FormContainer from './components/layout/FormPageLayout/FormContainer';
+import { Redirect, Route, Switch } from 'react-router-dom';
+import { Tab } from './components/atoms/Tab/Tab';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import styles from './App.scss';
+import { DetailsPage } from './components/templates/DetailsPage/DetailsPage';
+import { ROUTES } from './constants/ROUTES';
+import { FormPage } from './components/templates/FormPage/FormPage';
+import { TablePage } from './components/templates/TablePage/TablePage';
+import { Loader } from './components/atoms/Loader/Loader';
+import { useSelector } from 'react-redux';
+import { getIsLoadingSelector } from './store/selectors';
 
 function App() {
+  const isLoading = useSelector(getIsLoadingSelector);
+
   return (
     <div className="App">
+      {isLoading && <Loader />}
       <div className="container">
-        <TabToggle exact path="/table" title="Table" />
-        <TabToggle path="/add" title="Add" />
-        <Route exact path="/table/:pageNum?" component={TableContainer} />
-        <Route path="/add" component={FormContainer} />
-        <Route path="/details/id:id" component={DetailsContainer} />
+        <nav>
+          <Tab to={ROUTES.songs} title="Table" />
+          <Tab to={ROUTES.addSong} title="Add" />
+        </nav>
+        <div>
+          <Switch>
+            <Route exact path={ROUTES.root}>
+              <Redirect to={ROUTES.songs} />
+            </Route>
+            <Route exact path={ROUTES.songs} component={TablePage} />
+            <Route path={ROUTES.addSong} component={FormPage} />
+            <Route path={ROUTES.song} component={DetailsPage} />
+          </Switch>
+        </div>
       </div>
       <ToastContainer progressClassName={styles.toastProgressBar} />
     </div>

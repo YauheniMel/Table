@@ -1,22 +1,19 @@
 import styles from './InputFile.module.scss';
-import iconDownloadUrl from '../../../assets/icons/download.svg';
-import React from 'react';
+import downloadIconUrl from '../../../assets/icons/download.svg';
 
-export default function InputFile({ title, name, accept, onChange }) {
-  return (
-    <label className={styles.wrapper}>
-      <input
-        accept={accept}
-        type="file"
-        name={name}
-        onChange={onChange}
-        required
-      />
-      <span className={styles.icon}>
-        <img src={iconDownloadUrl} alt="download" />
-      </span>
-      <span className={styles.title}>{title}</span>
-      <span className={styles.title_ready}>File is ready</span>
-    </label>
-  );
-}
+export const InputFile = ({ title, name, accept, onChange }) => (
+  <label className={styles.wrapper}>
+    <input
+      accept={accept}
+      type="file"
+      name={name}
+      onChange={onChange}
+      required
+    />
+    <span className={styles.icon}>
+      <img src={downloadIconUrl} alt="downloaded" />
+    </span>
+    <span className={styles.title}>{title}</span>
+    <span className={styles.title_ready}>File is ready</span>
+  </label>
+);
